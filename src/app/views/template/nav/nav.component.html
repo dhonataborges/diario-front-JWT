@@ -1,0 +1,52 @@
+<mat-drawer-container class="container" autosize>
+    <mat-drawer #drawer class="sidenav" mode="side">
+        <mat-nav-list class="nav-list">
+            
+            <a mat-list-item routerLink="/">
+                <i class="material-icons">home</i>Home
+            </a>
+
+            <a mat-list-item routerLink="/aulasLecionadas">
+                <i class="material-icons">library_books</i>Aulas Lecionadas
+            </a>
+            
+            <a mat-list-item routerLink="/clientes">
+                <i class="material-icons">card_travel</i>Atividades Avaliativas
+            </a>
+
+            <a mat-list-item routerLink="/clientes">
+                <i class="material-icons">perm_contact_calendar</i>Frequência
+            </a>
+
+            <a mat-list-item routerLink="/observacoes">
+                <i class="material-icons">insert_comment</i>Observações Gerais
+            </a>
+
+            <a mat-list-item routerLink="/clientes">
+                <i class="material-icons">file_copy </i>Resultado Final
+            </a>
+
+            <a mat-list-item routerLink="/clientes">
+                <i class="material-icons">supervisor_account</i>Perfil da Turma
+            </a>
+
+            <a mat-list-item [matMenuTriggerFor]="menu">
+                <mat-menu #menu="matMenu">
+                    <a routerLink="profissionais" mat-menu-item>Profissionais da Educação</a>
+                    <a routerLink="alunos" mat-menu-item>Alunos</a>
+                </mat-menu>
+                <i class="material-icons">group_add</i>Cadastros
+            </a>
+
+        </mat-nav-list>
+    </mat-drawer>
+       
+    <div class="sidenav-content">
+        <button mat-button (click)="drawer.toggle()">
+        <mat-icon>more_vert</mat-icon>  
+        </button>
+          <router-outlet></router-outlet>
+      </div>
+    
+  </mat-drawer-container>
+  
