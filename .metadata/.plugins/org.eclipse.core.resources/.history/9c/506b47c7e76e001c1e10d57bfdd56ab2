@@ -1,0 +1,33 @@
+package com.borges.diario_eletronico.service;
+
+import java.util.Optional;
+
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
+
+import com.borges.diario_eletronico.data.DetalheUsuarioData;
+import com.borges.diario_eletronico.domain.User;
+import com.borges.diario_eletronico.repository.UserRepository;
+
+@Component
+public class DetalheUserImplementeService implements UserDetailsService {
+
+	private final UserRepository repository;
+
+	public public public DetalheUserImplementeService(UserRepository repository) {
+		this.repository = repository;
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		Optional<User> usuario = repository.findByLogin(username);
+		if (usuario.isEmpty()) {
+			throw new UsernameNotFoundException("Usuário [" + username + "] não encontrado");
+		}
+
+		return new DetalheUsuarioData(username);
+	}
+
+}

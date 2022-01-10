@@ -22,9 +22,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatMenuModule} from '@angular/material/menu';
 
 import { HomeComponent } from './views/components/home/home.component';
-import { FooterComponent } from './views/template/footer/footer.component';
-import { NavComponent } from './views/template/nav/nav.component';
-import { HeaderComponent } from './views/template/header/header.component';
+import { FooterComponent } from './views/components/template/footer/footer.component';
+import { NavComponent } from './views/components/template/nav/nav.component';
+import { HeaderComponent } from './views/components/template/header/header.component';
 import { AlunoReadComponent } from './views/components/aluno/aluno-read/aluno-read.component';
 import { AlunoCreateComponent } from './views/components/aluno/aluno-create/aluno-create.component';
 import { AlunoUpdateComponent } from './views/components/aluno/aluno-update/aluno-update.component';
@@ -42,6 +42,10 @@ import { AulasLecionadasReadComponent } from './views/components/aulasLecionadas
 import { AulasLecionadasCreateComponent } from './views/components/aulasLecionadas/aulas-lecionadas-create/aulas-lecionadas-create.component';
 import { AulasLecionadasUpdateComponent } from './views/components/aulasLecionadas/aulas-lecionadas-update/aulas-lecionadas-update.component';
 import { AulasLecionadasDeleteComponent } from './views/components/aulasLecionadas/aulas-lecionadas-delete/aulas-lecionadas-delete.component';
+import { LoginComponent } from './views/components/login/login.component';
+import { AuthService } from './service/auth.service';
+import { ContaCreateComponent } from './views/components/conta/conta-create/conta-create.component';
+import { AutenticarComponent } from './views/components/autenticar/autenticar.component';
 
 
 @NgModule({
@@ -67,6 +71,9 @@ import { AulasLecionadasDeleteComponent } from './views/components/aulasLecionad
     AulasLecionadasCreateComponent,
     AulasLecionadasUpdateComponent,
     AulasLecionadasDeleteComponent,
+    LoginComponent,
+    ContaCreateComponent,
+    AutenticarComponent
   ],
   imports: [
     BrowserModule,
@@ -94,7 +101,7 @@ import { AulasLecionadasDeleteComponent } from './views/components/aulasLecionad
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  providers: [],
+  providers: [AuthService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

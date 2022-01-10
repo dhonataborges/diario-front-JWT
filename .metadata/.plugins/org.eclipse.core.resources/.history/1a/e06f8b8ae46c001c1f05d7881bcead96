@@ -1,0 +1,5 @@
+package com.borges.diario_eletronico.data;
+
+public class DetalheUsuarioData {
+
+}

@@ -1,0 +1,39 @@
+<mat-card class="card mat-elevation-z8">
+    <h1>Login</h1>
+        <form>
+            <mat-form-field appearance="fill">
+                <mat-label>Selecione o Cargo</mat-label>
+                <mat-select [(value)]="user.cargo" [formControl]="cargo" required name="cargo">
+                  <mat-option value="admin">Admin</mat-option>
+                  <mat-option value="diretor">Diretor</mat-option>
+                  <mat-option value="supervisor">Supervisor</mat-option>
+                  <mat-option value="professor">Professor</mat-option>
+                </mat-select>
+                <mat-error *ngIf="cargo.invalid">{{  errorValidCargo() }}</mat-error>
+              </mat-form-field>
+              
+            <form class="email-form">
+                <mat-form-field class="email-full-width" appearance="fill">
+                  <mat-label>E-mail</mat-label>
+                  <input [(ngModel)]="user.email" type="email" matInput [formControl]="email" placeholder="Ex. pat@example.com">
+                  <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                    Please enter a valid email address
+                  </mat-error>
+                  <mat-error *ngIf="email.hasError('required')">
+                    E-mail é  <strong>obrigatório!</strong>
+                  </mat-error>
+                </mat-form-field>
+              </form>
+        
+                <mat-form-field appearance="fill">
+                    <mat-label>Digita a senha</mat-label>
+                    <input matInput [(ngModel)]="user.password" [type]="password ? 'password' : 'text'"  required name="password" >
+                    <button mat-icon-button matSuffix (click)="password = !password" [attr.aria-label]="'password password'" [attr.aria-pressed]="password">
+                        <mat-icon>{{password ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      </button>
+                  </mat-form-field>
+        </form>
+    <mat-card-actions>
+        <button class="mat-elevation-z8" mat-stroked-button color="primary" (click)="navigateToHome()">ENTRAR</button>
+      </mat-card-actions>
+</mat-card>

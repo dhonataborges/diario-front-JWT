@@ -9,6 +9,7 @@ import { AulasLecionadasDeleteComponent } from './views/components/aulasLecionad
 import { AulasLecionadasReadComponent } from './views/components/aulasLecionadas/aulas-lecionadas-read/aulas-lecionadas-read.component';
 import { AulasLecionadasUpdateComponent } from './views/components/aulasLecionadas/aulas-lecionadas-update/aulas-lecionadas-update.component';
 import { HomeComponent } from './views/components/home/home.component';
+import { LoginComponent } from './views/components/login/login.component';
 import { ObservacoesCreateComponent } from './views/components/observacoes/observacoes-create/observacoes-create.component';
 import { ObservacoesDeleteComponent } from './views/components/observacoes/observacoes-delete/observacoes-delete.component';
 import { ObservacoesReadComponent } from './views/components/observacoes/observacoes-read/observacoes-read.component';
@@ -17,12 +18,17 @@ import { ProfissionalCreateComponent } from './views/components/profissional/pro
 import { ProfissionalDeleteComponent } from './views/components/profissional/profissional-delete/profissional-delete.component';
 import { ProfissionalReadComponent } from './views/components/profissional/profissional-read/profissional-read.component';
 import { ProfissionalUpdadeComponent } from './views/components/profissional/profissional-updade/profissional-updade.component';
+import { NavComponent } from './views/components/template/nav/nav.component';
 
 const routes: Routes = [
+  
   {
     path: '',
+    component: LoginComponent
+  },
+  {
+    path: 'home',
     component: HomeComponent
-
   },
   {
     path: 'alunos',
@@ -44,14 +50,14 @@ const routes: Routes = [
     path: 'profissionais',
     component: ProfissionalReadComponent
   }
-  ,{
+  , {
     path: 'profissionais/create',
     component: ProfissionalCreateComponent
-  },{
+  }, {
     path: 'profissionais/update/:id',
     component: ProfissionalUpdadeComponent
   }
-  ,{
+  , {
     path: 'profissionais/delete/:id',
     component: ProfissionalDeleteComponent
   },

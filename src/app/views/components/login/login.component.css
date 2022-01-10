@@ -1,0 +1,29 @@
+.card {
+    border-radius: 5%;
+    max-width: 30%;
+    align-items: center;
+    margin: auto;
+    padding: 4rem 2rem;
+    top:15%;
+  }
+  .full-width {
+      width: 100%;
+      margin: auto;
+      margin-bottom: 1rem;
+  }
+  button {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  h1 {
+      text-align: center;
+  }
+
+  .email-full-width {
+    width: 100%;
+    background: transparent;
+  }
+
+  .mat-form-field-appearance-fill {
+      width: 100%;
+  }
