@@ -46,7 +46,7 @@ import { LoginComponent } from './views/components/login/login.component';
 import { AuthService } from './service/auth.service';
 import { ContaCreateComponent } from './views/components/conta/conta-create/conta-create.component';
 import { AutenticarComponent } from './views/components/autenticar/autenticar.component';
-
+import { DashboardLayoutComponent } from './views/layouts/dashboard-layout/dashboard-layout.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +73,8 @@ import { AutenticarComponent } from './views/components/autenticar/autenticar.co
     AulasLecionadasDeleteComponent,
     LoginComponent,
     ContaCreateComponent,
-    AutenticarComponent
+    AutenticarComponent,
+    DashboardLayoutComponent
   ],
   imports: [
     BrowserModule,
@@ -101,7 +102,7 @@ import { AutenticarComponent } from './views/components/autenticar/autenticar.co
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  providers: [AuthService ],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

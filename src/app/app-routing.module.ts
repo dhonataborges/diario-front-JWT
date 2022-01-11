@@ -19,81 +19,86 @@ import { ProfissionalDeleteComponent } from './views/components/profissional/pro
 import { ProfissionalReadComponent } from './views/components/profissional/profissional-read/profissional-read.component';
 import { ProfissionalUpdadeComponent } from './views/components/profissional/profissional-updade/profissional-updade.component';
 import { NavComponent } from './views/components/template/nav/nav.component';
+import {DashboardLayoutComponent} from "./views/layouts/dashboard-layout/dashboard-layout.component";
 
 const routes: Routes = [
-  
   {
     path: '',
     component: LoginComponent
   },
   {
-    path: 'home',
-    component: HomeComponent
-  },
-  {
-    path: 'alunos',
-    component: AlunoReadComponent
-  },
-  {
-    path: 'alunos/create',
-    component: AlunoCreateComponent
-  },
-  {
-    path: 'alunos/update/:id',
-    component: AlunoUpdateComponent
-  },
-  {
-    path: 'alunos/delete/:id',
-    component: AlunoDeleteComponent
-  },
-  {
-    path: 'profissionais',
-    component: ProfissionalReadComponent
+    path: 'dashboard',
+    component: DashboardLayoutComponent,
+    children: [
+      {
+        path: 'home',
+        component: HomeComponent
+      },
+      {
+        path: 'alunos',
+        component: AlunoReadComponent
+      },
+      {
+        path: 'alunos/create',
+        component: AlunoCreateComponent
+      },
+      {
+        path: 'alunos/update/:id',
+        component: AlunoUpdateComponent
+      },
+      {
+        path: 'alunos/delete/:id',
+        component: AlunoDeleteComponent
+      },
+      {
+        path: 'profissionais',
+        component: ProfissionalReadComponent
+      }
+      , {
+        path: 'profissionais/create',
+        component: ProfissionalCreateComponent
+      }, {
+        path: 'profissionais/update/:id',
+        component: ProfissionalUpdadeComponent
+      }
+      , {
+        path: 'profissionais/delete/:id',
+        component: ProfissionalDeleteComponent
+      },
+      {
+        path: 'observacoes',
+        component: ObservacoesReadComponent
+      },
+      {
+        path: 'observacoes/create',
+        component: ObservacoesCreateComponent
+      },
+      {
+        path: 'observacoes/update/:id',
+        component: ObservacoesUpdateComponent
+      },
+      {
+        path: 'observacoes/delete/:id',
+        component: ObservacoesDeleteComponent
+      },
+      {
+        path: 'aulasLecionadas',
+        component: AulasLecionadasReadComponent
+      },
+      {
+        path: 'aulasLecionadas/create',
+        component: AulasLecionadasCreateComponent
+      },
+      {
+        path: 'aulasLecionadas/update/:id',
+        component: AulasLecionadasUpdateComponent
+      },
+      {
+        path: 'aulasLecionadas/delete/:id',
+        component: AulasLecionadasDeleteComponent
+      }
+    ]
   }
-  , {
-    path: 'profissionais/create',
-    component: ProfissionalCreateComponent
-  }, {
-    path: 'profissionais/update/:id',
-    component: ProfissionalUpdadeComponent
-  }
-  , {
-    path: 'profissionais/delete/:id',
-    component: ProfissionalDeleteComponent
-  },
-  {
-    path: 'observacoes',
-    component: ObservacoesReadComponent
-  },
-  {
-    path: 'observacoes/create',
-    component: ObservacoesCreateComponent
-  },
-  {
-    path: 'observacoes/update/:id',
-    component: ObservacoesUpdateComponent
-  },
-  {
-    path: 'observacoes/delete/:id',
-    component: ObservacoesDeleteComponent
-  },
-  {
-    path: 'aulasLecionadas',
-    component: AulasLecionadasReadComponent
-  },
-  {
-    path: 'aulasLecionadas/create',
-    component: AulasLecionadasCreateComponent
-  },
-  {
-    path: 'aulasLecionadas/update/:id',
-    component: AulasLecionadasUpdateComponent
-  },
-  {
-    path: 'aulasLecionadas/delete/:id',
-    component: AulasLecionadasDeleteComponent
-  }
-
 ];
 
 @NgModule({
