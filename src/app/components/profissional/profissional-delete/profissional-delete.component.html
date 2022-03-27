@@ -1,0 +1,70 @@
+
+<form class="form mat-elevation-z8">
+    <h1>Remover um Profissional</h1>
+    <mat-form-field class="full-width">
+      <mat-label>Nome</mat-label>
+      <input [(ngModel)]="prof.nome" disabled name="nome" maxlength="100" matInput placeholder="Ex. João Borges">
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+    <mat-label>Data de Nascimento</mat-label>
+    <input [(ngModel)]="prof.nascimento" disabled [ngModelOptions]="{standalone: true}" matInput [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Selecione o Genero</mat-label>
+      <mat-select [(value)]="prof.sexo" disabled name="sexo" >
+        <mat-option value="masculino">Masculino</mat-option>
+        <mat-option value="feminino">Feminino</mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+  
+    <mat-form-field class="full-width">
+        <mat-label>CPF</mat-label>
+        <input [(ngModel)]="prof.cpf" disabled name="cpf" maxlength="15" matInput placeholder="000.000.000-00">
+           </mat-form-field>
+  
+      <mat-form-field class="full-width">
+        <mat-label>RG</mat-label>
+        <input [(ngModel)]="prof.rg" disabled required name="rg" maxlength="15" matInput placeholder="00.000.000">
+        </mat-form-field>
+  
+    <mat-form-field class="full-width">
+        <mat-label>Telefone</mat-label>
+        <input [(ngModel)]="prof.telefone" disabled required name="telefone" maxlength="15" matInput placeholder="(00) 90000-0000">
+             </mat-form-field>
+               
+      
+      <mat-form-field class="full-width">
+        <mat-label>Turma</mat-label>
+        <input [(ngModel)]="prof.turma" disabled name="turmas" maxlength="50" matInput placeholder="Ex. Guimarães Rosa">
+            </mat-form-field>
+            <mat-form-field class="fullWidth" appearance="legacy">
+              <mat-label>E-mail</mat-label>
+              <input
+              [(ngModel)]="prof.email"
+              name="email"
+              required 
+              matInput 
+              placeholder="Ex.. fulano@mail.com">
+              <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+    
+            <mat-form-field class="fullWidth" appearance="legacy">
+              <mat-label>Senha</mat-label>
+              <input
+              [(ngModel)]="prof.senha"
+              name="senha"
+              required
+              type="password" 
+              matInput 
+              placeholder="Ex.. 1234">
+              <mat-icon matSuffix>password</mat-icon>
+            </mat-form-field>
+
+    <button class="mat-elevation-z8" (click)="delete()" mat-stroked-button color="accent">EXCLUIR</button>
+    <button class="mat-elevation-z8" (click)="cancel()" mat-stroked-button color="warn">CANCELAR</button>
+  </form>

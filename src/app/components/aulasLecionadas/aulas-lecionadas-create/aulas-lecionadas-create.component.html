@@ -1,0 +1,46 @@
+
+<form class="form mat-elevation-z8">
+    <h1>Aulas Lecionadas</h1>
+
+    <form class="form">
+        
+        <mat-form-field appearance="fill">
+            <mat-label>Data da Observação</mat-label>
+            <input [(ngModel)]="aulasL.dataAula" [ngModelOptions]="{standalone: true}" required name="dataAula" matInput [matDatepicker]="picker">
+            <mat-error *ngIf="dataAula.invalid">{{  errorValidDataAula() }}</mat-error>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field class="select" appearance="fill">
+            <mat-label>Selecione o Bimestre</mat-label>
+            <mat-select disableRipple [(ngModel)]="aulasL.bimestre" >
+              <mat-option value="primeiro bimestre">Primeiro Bimestre</mat-option>
+              <mat-option value="segundo bimestre">Segundo Bimestre</mat-option>
+              <mat-option value="terceiro bimestre">Terceiro Bimestre</mat-option>
+              <mat-option value="quarto bimestre">Quarto Bimestre</mat-option>
+            </mat-select>
+            <mat-error *ngIf="bimestre.invalid">{{ errorValidBimestre() }}</mat-error>
+          </mat-form-field> 
+
+          <mat-form-field appearance="fill">
+            <mat-label>Selecione o Disciplina</mat-label>
+            <mat-select disableRipple [(ngModel)]="aulasL.disciplina" >
+              <mat-option value="portugues">Português</mat-option>
+              <mat-option value="matematica">Matemática</mat-option>
+              <mat-option value="geografia">Geografia</mat-option>
+              <mat-option value="ciencia">Ciência</mat-option>
+            </mat-select>
+            <mat-error *ngIf="disciplina.invalid">{{ errorValidBimestre() }}</mat-error>
+          </mat-form-field> 
+          
+        <mat-form-field class="full-width">
+            <mat-label>Adicione as observações da aula</mat-label>
+            <textarea [(ngModel)]="aulasL.obsAulas" [formControl]="obsAulas" required name="obsAulas"  matInput maxlength="1000"></textarea>
+            <mat-error *ngIf="obsAulas.invalid">{{  errorValidObsAulas() }}</mat-error>
+        </mat-form-field>
+    </form>
+
+    <button class="mat-elevation-z8" (click)="create()" mat-stroked-button color="accent">ADICIONAR</button>
+    <button class="mat-elevation-z8" (click)="cancel()" mat-stroked-button color="warn">CANCELAR</button>
+  </form>

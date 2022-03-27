@@ -1,0 +1,95 @@
+
+<form class="form mat-elevation-z8">
+    <h1>Criando um novo Profissional</h1>
+    <mat-form-field class="full-width">
+      <mat-label>Nome</mat-label>
+      <input [(ngModel)]="prof.nome" [formControl]="nome" required name="nome" maxlength="100" matInput placeholder="Ex. João Borges">
+      <mat-error *ngIf="nome.invalid">{{ errorValidNome() }}</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+    <mat-label>Data de Nascimento</mat-label>
+    <input [(ngModel)]="prof.nascimento" [ngModelOptions]="{standalone: true}"  required name="nascimento" matInput [matDatepicker]="picker">
+    <mat-error *ngIf="nascimento.invalid">{{  errorValidNascimento() }}</mat-error>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Selecione o Genero</mat-label>
+      <mat-select [(value)]="prof.sexo" [formControl]="sexo" required name="sexo" required name="sexo" >
+        <mat-option value="masculino">Masculino</mat-option>
+        <mat-option value="feminino">Feminino</mat-option>
+      </mat-select>
+      <mat-error *ngIf="sexo.invalid">{{  errorValidSexo() }}</mat-error>
+    </mat-form-field>
+    
+  
+    <mat-form-field class="full-width">
+        <mat-label>CPF</mat-label>
+        <input [(ngModel)]="prof.cpf" [formControl]="cpf" required name="cpf" maxlength="15" matInput placeholder="000.000.000-00">
+        <mat-error *ngIf="cpf.invalid">{{ errorValidCPF() }}</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field class="full-width">
+        <mat-label>RG</mat-label>
+        <input [(ngModel)]="prof.rg" [formControl]="rg" required name="rg" maxlength="15" matInput placeholder="00.000.000">
+       <mat-error *ngIf="rg.invalid">{{ errorValidRG() }}</mat-error>
+      </mat-form-field>
+  
+    <mat-form-field class="full-width">
+        <mat-label>Telefone</mat-label>
+        <input [(ngModel)]="prof.telefone" [formControl]="telefone" required name="telefone" maxlength="15" matInput placeholder="(00) 90000-0000">
+        <mat-error *ngIf="telefone.invalid">{{ errorValidTelefone() }}</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Selecione o Cargo</mat-label>
+        <mat-select [(value)]="prof.sexo" [formControl]="sexo" required name="sexo" required name="sexo" >
+          <mat-option value="professor">Professor</mat-option>
+          <mat-option value="diretor">Diretor</mat-option>
+          <mat-option value="supervisor">Supervisor</mat-option>
+        </mat-select>
+        <mat-error *ngIf="cargo.invalid">{{  errorValidCargo() }}</mat-error>
+      </mat-form-field>
+      
+      <mat-form-field class="full-width">
+        <mat-label>Turma</mat-label>
+        <input [(ngModel)]="prof.turma" [formControl]="turma" required name="turma" maxlength="50" matInput placeholder="Ex. Guimarães Rosa">
+        <mat-error *ngIf="turma.invalid">{{ errorValidTurma() }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Disciplina</mat-label>
+        <input [(ngModel)]="prof.turma" [formControl]="disciplina" required name="disciplina" maxlength="30" matInput placeholder="Ex. Lingua Protuguesa">
+        <mat-error *ngIf="disciplina.invalid">{{ errorValidDisciplina() }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="fullWidth" appearance="legacy">
+        <mat-label>E-mail</mat-label>
+        <input
+        [(ngModel)]="prof.email"
+        name="email"
+        [formControl]="email"
+        required 
+        matInput 
+        placeholder="Ex.. fulano@mail.com">
+        <mat-icon matSuffix>email</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="fullWidth" appearance="legacy">
+        <mat-label>Senha</mat-label>
+        <input
+        [(ngModel)]="prof.senha"
+        name="senha"
+        [formControl]="senha"
+        required
+        type="password" 
+        matInput 
+        placeholder="Ex.. 1234">
+        <mat-icon matSuffix>password</mat-icon>
+      </mat-form-field>
+
+    <button class="mat-elevation-z8" (click)="update()" mat-stroked-button color="accent">ATUALIZAR</button>
+    <button class="mat-elevation-z8" (click)="cancel()" mat-stroked-button color="warn">CANCELAR</button>
+  </form>

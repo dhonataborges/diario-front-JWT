@@ -1,21 +1,23 @@
+
 export interface Profissional {
     id?: any;
-    nome: any;
+    nome: String;
     nascimento: any;
     sexo: String;
     cpf: String;
     rg: String;
-    telefone: String;
+    telefone: String; 
     endereco: String;
-    numero: any;
-    bairro: String;
-    cep:String;
-    cidade: String;
+	numero: any;
+	bairro: String;
+    cep: any;
+	cidade: String;
     estado: String;
     zona: String;
-    cargo: String;
-    turma: String;
-    disciplina: String;
+	turma: any;
+    nomeTurma: any;
     email: String;
-    senha: any;
+    senha: String;
+    perfis: String[]
+
 }

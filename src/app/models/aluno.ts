@@ -1,6 +1,6 @@
 export interface Aluno {
     id?: any;
-    nome: String;
+    nome: any;
     nascimento: any;
     sexo: String;
     cpf: String;
@@ -13,6 +13,9 @@ export interface Aluno {
     cidade: String;
     estado: String;
     zona: String;
-    matricula: any;
-    responsavel: String;
+    email: String;
+    senha: String;
+    perfis: String[]
+
+
 }

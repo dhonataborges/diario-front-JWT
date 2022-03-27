@@ -1,0 +1,36 @@
+
+<form class="form mat-elevation-z8">
+    <h1>Criando uma Turma</h1>
+    <mat-form-field class="full-width">
+      <mat-label>Nome</mat-label>
+      <input [(ngModel)]="turma.nomeTurma" required name="nomeTurma" maxlength="100" matInput placeholder="Ex. João Borges">
+       </mat-form-field>
+  
+       <div class="aluno">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Selecione um Aluno</mat-label>
+            <mat-select
+            [(ngModel)]="turma.aluno"
+            name="alunos" 
+            [formControl]="aluno" 
+            required>
+              <mat-option *ngFor="let al of alunos" value="{{ al.id }}">{{ al.nome }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="aluno">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Selecione um Professor</mat-label>
+                <mat-select
+                [(ngModel)]="turma.professor"
+                name="aluno" 
+                [formControl]="aluno" 
+                required>
+                  <mat-option *ngFor="let prof of professores" value="{{ prof.id }}">{{ prof.nome }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+    <button class="mat-elevation-z8" (click)="create()" mat-stroked-button color="accent">CRIAR</button>
+    <button class="mat-elevation-z8" (click)="cancel()" mat-stroked-button color="warn">CANCELAR</button>
+  </form>
