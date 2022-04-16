@@ -1,5 +1,5 @@
 
-export interface Profissional {
+export interface Professor {
     id?: any;
     nome: String;
     nascimento: any;
@@ -8,16 +8,8 @@ export interface Profissional {
     rg: String;
     telefone: String; 
     endereco: String;
-	numero: any;
-	bairro: String;
-    cep: any;
-	cidade: String;
-    estado: String;
-    zona: String;
-	turma: any;
-    nomeTurma: any;
+	zona: String;
     email: String;
     senha: String;
     perfis: String[]
-
 }

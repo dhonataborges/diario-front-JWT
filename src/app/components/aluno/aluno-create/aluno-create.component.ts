@@ -16,21 +16,14 @@ export class AlunoCreateComponent implements OnInit {
   aluno: Aluno = {
     id: '',
     nome: '',
-    nascimento: '',
+    nascimento:'',
     sexo: '',
     cpf: '',
     rg: '',
+    responsavel: '',
     telefone: '',
     endereco: '',
-    numero: '',
-    bairro: '',
-    cep: '',
-    cidade: '',
-    estado: '',
-    zona: '',
-    email: '',
-    senha: '',
-    perfis: []
+    zona: ''
 
   }
 
@@ -38,21 +31,11 @@ export class AlunoCreateComponent implements OnInit {
   nascimento = new FormControl('', [Validators.minLength(5)])
   sexo = new FormControl('', [Validators.minLength(5)])
   rg = new FormControl('', [Validators.minLength(10)])
+  responsavel = new FormControl('', [Validators.minLength(5)])
   telefone = new FormControl('', [Validators.minLength(11)])
   endereco = new FormControl('', [Validators.minLength(5)])
-  numero = new FormControl('', [Validators.minLength(1)])
-  bairro = new FormControl('', [Validators.minLength(5)])
-  cep = new FormControl('', [Validators.minLength(5)])
-  cidade = new FormControl('', [Validators.minLength(5)])
-  estado = new FormControl('', [Validators.minLength(3)])
   zona = new FormControl('', [Validators.minLength(5)])
-  matricula = new FormControl('', [Validators.minLength(1)])
-  responsavel = new FormControl('', [Validators.minLength(5)])
-  cpf: FormControl = new FormControl(null, Validators.required);
-  email: FormControl = new FormControl(null, Validators.email);
-  senha: FormControl = new FormControl(null, Validators.minLength(3));
-
-
+  cpf = new FormControl('', [Validators.minLength(11)])
   constructor(
     private toast: ToastrService,
     private router: Router,
@@ -69,28 +52,19 @@ export class AlunoCreateComponent implements OnInit {
     this.service.create(this.aluno).subscribe(() => {
       this.toast.success('Aluno cadastrado com sucesso!', 'Cadastro');
       this.router.navigate(['alunos']);
-    }, ex => {
-      if(ex.error.errors) {
-        ex.error.errors.forEach((element: { message: string | undefined; }) => {
-          this.toast.error(element.message);
-        });
-      } else {
-        this.toast.error(ex.error.message);
+    }, err => {
+      console.log(err)
+      if (err.error.error.match('já cadastrado')) {
+        this.toast.error(err.error.error)
+      } else if (err.error.errors[0].message === "número do registro de contribuinte individual brasileiro (CPF) inválido") {
+        this.toast.error("CPF inválido!")
+        console.log(err)
       }
-    });
-  }
-
-  addPerfil(perfil: any): void {
-    if(this.aluno.perfis.includes(perfil)) {
-      this.aluno.perfis.splice(this.aluno.perfis.indexOf(perfil), 1);
-    } else {
-      this.aluno.perfis.push(perfil);
-    }
+    })
   }
 
   validaCampos() {
     return this.nome.valid && this.cpf.valid 
-      && this.email.valid && this.senha.valid
   }
 
   errorValidNome() {
@@ -138,55 +112,6 @@ export class AlunoCreateComponent implements OnInit {
   errorValidEndereco() {
     if (this.endereco.invalid) {
       return 'Endereço é obrigatório!';
-    }
-    return false;
-  }
-
-  errorValidNumero() {
-    if (this.numero.invalid) {
-      return 'Número é obrigatório!';
-    }
-    return false;
-  }
-
-  errorValidBairro() {
-    if (this.bairro.invalid) {
-      return 'Bairro é obrigatório!';
-    }
-    return false;
-  }
-
-  errorValidCep() {
-    if (this.cep.invalid) {
-      return 'Adicione um Cep valido!';
-    }
-    return false;
-  }
-
-  errorValidCidade() {
-    if (this.cidade.invalid) {
-      return 'Cidade é obrigatório!';
-    }
-    return false;
-  }
-
-  errorValidEstado() {
-    if (this.estado.invalid) {
-      return 'Estado é obrigatório!';
-    }
-    return false;
-  }
-
-  errorValidZona() {
-    if (this.zona.invalid) {
-      return 'Estado é obrigatório!';
-    }
-    return false;
-  }
-
-  errorValidMatricula() {
-    if (this.matricula.invalid) {
-      return 'Matrícula é obrigatório!';
     }
     return false;
   }

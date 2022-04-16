@@ -1,4 +1,7 @@
-import { ProfissionalCreateComponent } from './components/profissional/profissional-create/profissional-create.component';
+import { ProfessorUpdadeComponent } from './components/professor/professor-updade/professor-updade.component';
+import { ProfessorReadComponent } from './components/professor/professor-read/professor-read.component';
+import { ProfessorDeleteComponent } from './components/professor/professor-delete/professor-delete.component';
+import { ProfessorCreateComponent } from './components/professor/professor-create/professor-create.component';
 import { NgModule,LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +22,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatMenuModule} from '@angular/material/menu';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
@@ -29,9 +33,6 @@ import { AlunoUpdateComponent } from './components/aluno/aluno-update/aluno-upda
 import { AlunoDeleteComponent } from './components/aluno/aluno-delete/aluno-delete.component';
 import { MatNativeDateModule } from '@angular/material/core';
 
-import { ProfissionalReadComponent } from './components/profissional/profissional-read/profissional-read.component';
-import { ProfissionalUpdadeComponent } from './components/profissional/profissional-updade/profissional-updade.component';
-import { ProfissionalDeleteComponent } from './components/profissional/profissional-delete/profissional-delete.component';
 import { ObservacoesReadComponent } from './components/observacoes/observacoes-read/observacoes-read.component';
 import { ObservacoesCreateComponent } from './components/observacoes/observacoes-create/observacoes-create.component';
 import { ObservacoesUpdateComponent } from './components/observacoes/observacoes-update/observacoes-update.component';
@@ -40,7 +41,6 @@ import { AulasLecionadasReadComponent } from './components/aulasLecionadas/aulas
 import { AulasLecionadasCreateComponent } from './components/aulasLecionadas/aulas-lecionadas-create/aulas-lecionadas-create.component';
 import { AulasLecionadasUpdateComponent } from './components/aulasLecionadas/aulas-lecionadas-update/aulas-lecionadas-update.component';
 import { AulasLecionadasDeleteComponent } from './components/aulasLecionadas/aulas-lecionadas-delete/aulas-lecionadas-delete.component';
-import { DisciplinaCreateComponent } from './components/disciplina/disciplina-create/disciplina-create.component';
 import { DisciplinaReadComponent } from './components/disciplina/disciplina-read/disciplina-read.component';
 import { DisciplinaUpdateComponent } from './components/disciplina/disciplina-update/disciplina-update.component';
 import { DisciplinaDeleteComponent } from './components/disciplina/disciplina-delete/disciplina-delete.component';
@@ -52,6 +52,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxMaskModule } from 'ngx-mask';
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
+import { TurmaPovoadaComponent } from './components/turma/turma-povoada/turma-povoada.component';
+import { DisciplinaCreateComponent } from './components/disciplina/disciplina-create/disciplina-create.component';
 
 
 
@@ -65,10 +67,10 @@ import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
     AlunoCreateComponent,
     AlunoUpdateComponent,
     AlunoDeleteComponent,
-    ProfissionalReadComponent,
-    ProfissionalCreateComponent,
-    ProfissionalUpdadeComponent,
-    ProfissionalDeleteComponent,
+    ProfessorCreateComponent,
+    ProfessorDeleteComponent,
+    ProfessorReadComponent,
+    ProfessorUpdadeComponent,
     ObservacoesReadComponent,
     ObservacoesCreateComponent,
     ObservacoesUpdateComponent,
@@ -77,15 +79,16 @@ import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
     AulasLecionadasCreateComponent,
     AulasLecionadasUpdateComponent,
     AulasLecionadasDeleteComponent,
-    DisciplinaCreateComponent,
     DisciplinaReadComponent,
+    DisciplinaCreateComponent,
     DisciplinaUpdateComponent,
     DisciplinaDeleteComponent,
     TurmaReadComponent,
+    TurmaCreateComponent,
     ObservacoesViewsComponent,
     AulasLecionadasViewsComponent,
-    TurmaCreateComponent,
-    LoginComponent
+    LoginComponent,
+    TurmaPovoadaComponent
   ],
   imports: [
     AppRoutingModule,
@@ -109,7 +112,8 @@ import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
     MatPaginatorModule,
     MatSnackBarModule,
     MatMenuModule,
-    MatNativeDateModule,   
+    MatNativeDateModule,
+    MatCheckboxModule,   
     ToastrModule.forRoot({
       timeOut: 4000,
       closeButton: true,

@@ -1,12 +1,12 @@
+import { Professor } from './../../../models/professor';
 import { Turma } from './../../../models/turma';
-import { ProfissionalService } from 'src/app/services/profissional.service';
-import { Profissional } from 'src/app/models/profissional';
 import { FormControl, Validators } from '@angular/forms';
 import { AlunoService } from 'src/app/services/aluno.service';
 import { Router } from '@angular/router';
 import { Aluno } from 'src/app/models/aluno';
 import { Component, OnInit } from '@angular/core';
 import { TurmaService } from 'src/app/services/turma.service';
+import { ProfessorService } from 'src/app/services/professor.service';
 
 @Component({
   selector: 'app-turma-create',
@@ -16,27 +16,30 @@ import { TurmaService } from 'src/app/services/turma.service';
 export class TurmaCreateComponent implements OnInit {
  
   turma: Turma = {
+    codTurma: '',
     nomeTurma: '',
+    turno: '',
+    anoCriacao: '',
     professor: '',
-    aluno: '',
-    nomeProfessor: '',
-    nomeAluno: ''
+    nomeProfessor: ''
   }
 
   alunos: Aluno[] = [];
-  professores: Profissional[] = [];
+  professores: Professor[] = [];
 
-  aluno: FormControl = new FormControl(null, [Validators.required]);
+  codTurma: FormControl = new FormControl(null, [Validators.required]);
+  nomeTurma: FormControl = new FormControl(null, [Validators.required]);
+  turno: FormControl = new FormControl(null, [Validators.required]);
+  anoCriacao: FormControl = new FormControl(null, [Validators.required]);
+  professor: FormControl = new FormControl(null, [Validators.required]);
 
   constructor(
-    private profissionalService: ProfissionalService,
-    private alunoService: AlunoService,
+    private professorService: ProfessorService,
     private turmaService: TurmaService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.listaAluno();
     this.listaProf();
   }
 
@@ -51,16 +54,22 @@ export class TurmaCreateComponent implements OnInit {
     })
   }
 
-  listaAluno(): void {
-    this.alunoService.findAll().subscribe(resposta => {
-      this.alunos = resposta;
-    })
-  }
-
   listaProf(): void {
-    this.profissionalService.findAll().subscribe(resposta => {
+    this.professorService.findAll().subscribe(resposta => {
       this.professores = resposta;
     })
   }
-  
+  errorValidAnoCriacao() {
+    if (this.anoCriacao.invalid) {
+      return 'Ano de Criação é obrigatório!';
+    }
+    return false;
+  }
+  errorValidTurno() {
+    if (this.turno.invalid) {
+      return 'O turno é obrigatório!';
+    }
+    return false;
+  }
+
   }

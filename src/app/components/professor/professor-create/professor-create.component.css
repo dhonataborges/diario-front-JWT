@@ -21,6 +21,17 @@ button {
     margin-bottom: 1rem;
 }
 
-.fullWidth {
+.full-width {
     width: 100%;
+    margin-bottom: 1rem;
+}
+
+.mat-form-field-appearance-fill {
+      width: 100%;
+}
+
+.section {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
 }

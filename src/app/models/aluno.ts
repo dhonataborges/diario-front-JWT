@@ -1,21 +1,12 @@
 export interface Aluno {
     id?: any;
-    nome: any;
+    nome: String;
     nascimento: any;
-    sexo: String;
-    cpf: String;
+    sexo: String
+    cpf:String;
     rg: String;
+    responsavel: String 
     telefone: String;
     endereco: String;
-    numero: any;
-    bairro: String;
-    cep:String;
-    cidade: String;
-    estado: String;
-    zona: String;
-    email: String;
-    senha: String;
-    perfis: String[]
-
-
+	zona: String
 }

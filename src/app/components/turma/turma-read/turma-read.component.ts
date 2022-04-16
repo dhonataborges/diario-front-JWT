@@ -16,9 +16,12 @@ export class TurmaReadComponent implements AfterViewInit {
 
   displayedColumns: string[] = [
     'id',
+    'codTurma',
     'nomeTurma',
-    'professor',
-    'aluno',
+    'turno',
+    'anoCriacao',
+    'nomeProfessor',
+    'adicionarAlunos',
     'action'
   ];
   dataSource = new MatTableDataSource<Turma>(this.turma);
@@ -42,7 +45,7 @@ export class TurmaReadComponent implements AfterViewInit {
   }
 
   navigateToCreate():void {
-    this.router.navigate(['turma/create'])
+    this.router.navigate(['turmas/create'])
   }
 
 }

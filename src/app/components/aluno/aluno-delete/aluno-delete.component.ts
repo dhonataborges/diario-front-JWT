@@ -21,17 +21,10 @@ export class AlunoDeleteComponent implements OnInit {
     sexo: '',
     cpf: '',
     rg: '',
+    responsavel: '',
     telefone: '',
     endereco: '',
-    numero: '',
-    bairro: '',
-    cep: '',
-    cidade: '',
-    estado: '',
-    zona: '',
-    email: '',
-    senha: '',
-    perfis: []
+    zona: ''
   }
 
   constructor(
@@ -48,7 +41,6 @@ export class AlunoDeleteComponent implements OnInit {
 
   findById(): void {
     this.service.findById(this.aluno.id).subscribe(resposta => {
-      resposta.perfis = [];
       this.aluno = resposta;
     });
   }

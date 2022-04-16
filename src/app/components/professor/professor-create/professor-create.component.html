@@ -1,13 +1,20 @@
 
 <form class="form mat-elevation-z8">
-    <h1>Criando um novo Profissional</h1>
-    <mat-form-field class="full-width">
+    <h1>Adicionando um novo Professor</h1>
+
+    
+    <section class="section">
+      <mat-checkbox class="margin" color="primary">Admin</mat-checkbox>
+      <mat-checkbox class="margin" color="primary">Professor</mat-checkbox>
+    </section>
+    
+    <mat-form-field class="full-width" appearance="outline">
       <mat-label>Nome</mat-label>
       <input [(ngModel)]="prof.nome" [formControl]="nome" required name="nome" maxlength="100" matInput placeholder="Ex. João Borges">
       <mat-error *ngIf="nome.invalid">{{ errorValidNome() }}</mat-error>
     </mat-form-field>
   
-    <mat-form-field appearance="fill">
+    <mat-form-field class="full-width" appearance="outline">
     <mat-label>Data de Nascimento</mat-label>
     <input [(ngModel)]="prof.nascimento" [ngModelOptions]="{standalone: true}" required name="nascimento" matInput [matDatepicker]="picker">
     <mat-error *ngIf="nascimento.invalid">{{  errorValidNascimento() }}</mat-error>
@@ -15,7 +22,7 @@
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
   
-    <mat-form-field appearance="fill">
+    <mat-form-field class="full-width" appearance="outline">
       <mat-label>Selecione o Genero</mat-label>
       <mat-select [(value)]="prof.sexo" [formControl]="sexo" required name="sexo">
         <mat-option value="masculino">Masculino</mat-option>
@@ -24,55 +31,40 @@
       <mat-error *ngIf="sexo.invalid">{{  errorValidSexo() }}</mat-error>
     </mat-form-field>
       
-    <mat-form-field class="full-width">
+    <mat-form-field class="full-width" appearance="outline">
         <mat-label>CPF</mat-label>
         <input [(ngModel)]="prof.cpf" [formControl]="cpf" required name="cpf" maxlength="15" matInput placeholder="000.000.000-00">
         <mat-error *ngIf="cpf.invalid">{{ errorValidCPF() }}</mat-error>
       </mat-form-field>
   
-      <mat-form-field class="full-width">
+      <mat-form-field class="full-width" appearance="outline">
         <mat-label>RG</mat-label>
         <input [(ngModel)]="prof.rg" [formControl]="rg" required name="rg" maxlength="15" matInput placeholder="00.000.000">
        <mat-error *ngIf="rg.invalid">{{ errorValidRG() }}</mat-error>
       </mat-form-field>
   
-    <mat-form-field class="full-width">
+    <mat-form-field class="full-width" appearance="outline">
         <mat-label>Telefone</mat-label>
         <input [(ngModel)]="prof.telefone" [formControl]="telefone" required name="telefone" maxlength="15" matInput placeholder="(00) 90000-0000">
         <mat-error *ngIf="telefone.invalid">{{ errorValidTelefone() }}</mat-error>
       </mat-form-field>
-    
-      <mat-form-field appearance="fill">
-        <mat-label>Selecione o Genero</mat-label>
-        <mat-select [(value)]="prof.sexo" [formControl]="sexo" required name="sexo">
-          <mat-option value="masculino">Masculino</mat-option>
-          <mat-option value="feminino">Feminino</mat-option>
-        </mat-select>
-        <mat-error *ngIf="sexo.invalid">{{  errorValidSexo() }}</mat-error>
+
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Endereço</mat-label>
+        <input [(ngModel)]="prof.endereco" [formControl]="endereco" required name="endereco" maxlength="50" matInput placeholder="Ex. Rua: São Paulo">
+        <mat-error *ngIf="endereco.invalid">{{ errorValidEndereco() }}</mat-error>
       </mat-form-field>
       
-      <mat-form-field appearance="fill">
-        <mat-label>Selecione o Genero</mat-label>
-        <mat-select [(value)]="prof.sexo" [formControl]="sexo" required name="sexo">
-          <mat-option value="masculino">Masculino</mat-option>
-          <mat-option value="feminino">Feminino</mat-option>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Selecione o Zona</mat-label>
+        <mat-select [(value)]="prof.zona" [formControl]="zona" required name="zona" required name="zona" >
+          <mat-option value="Urbana">Urbana</mat-option>
+          <mat-option value="Rural">Rural</mat-option>
         </mat-select>
-        <mat-error *ngIf="sexo.invalid">{{  errorValidSexo() }}</mat-error>
+        <mat-error *ngIf="zona.invalid">{{  errorValidSexo() }}</mat-error>
       </mat-form-field>
-
-      <div class="turma">
-        <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Selecione um Turma</mat-label>
-            <mat-select
-            [(ngModel)]="prof.turma"
-            name="turma" 
-            required>
-              <mat-option *ngFor="let turma of turmas" value="{{ turma.id }}">{{ turma.nomeTurma }}</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-
-        <mat-form-field class="fullWidth" appearance="legacy">
+       
+      <mat-form-field class="full-width" appearance="outline">
           <mat-label>E-mail</mat-label>
           <input
           [(ngModel)]="prof.email"
@@ -84,7 +76,7 @@
           <mat-icon matSuffix>email</mat-icon>
         </mat-form-field>
 
-        <mat-form-field class="fullWidth" appearance="legacy">
+        <mat-form-field class="full-width" appearance="outline">
           <mat-label>Senha</mat-label>
           <input
           [(ngModel)]="prof.senha"

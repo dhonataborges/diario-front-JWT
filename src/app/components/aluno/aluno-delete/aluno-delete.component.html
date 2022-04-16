@@ -1,19 +1,20 @@
 
-<form class="form mat-elevation-z8">
-  <h1>Remover um Aluno</h1>
-  <mat-form-field class="full-width">
-    <mat-label>Nome</mat-label>
-    <input [(ngModel)]="aluno.nome" disabled required name="nome" maxlength="100" matInput placeholder="Ex. João Borges">
-  </mat-form-field>
 
-  <mat-form-field appearance="fill">
+<form class="form mat-elevation-z8">
+  <h1>Deletar Aluno</h1>
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Nome</mat-label>
+    <input [(ngModel)]="aluno.nome" disabled maxlength="100" matInput placeholder="Ex. João Borges">
+   </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="outline">
   <mat-label>Data de Nascimento</mat-label>
-  <input [(ngModel)]="aluno.nascimento" disabled [ngModelOptions]="{standalone: true}" matInput [matDatepicker]="picker">
+  <input [(ngModel)]="aluno.nascimento" [ngModelOptions]="{standalone: true}"  disabled matInput [matDatepicker]="picker">
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>
 
-  <mat-form-field appearance="fill">
+  <mat-form-field class="full-width" appearance="outline">
     <mat-label>Selecione o Genero</mat-label>
     <mat-select [(value)]="aluno.sexo" disabled>
       <mat-option value="masculino">Masculino</mat-option>
@@ -22,87 +23,39 @@
   </mat-form-field>
   
 
-  <mat-form-field class="full-width">
+  <mat-form-field class="full-width" appearance="outline">
       <mat-label>CPF</mat-label>
-      <input [(ngModel)]="aluno.cpf" disabled required name="cpf" maxlength="15" matInput placeholder="000.000.000-00">
-     </mat-form-field>
-
-    <mat-form-field class="full-width">
+      <input [(ngModel)]="aluno.cpf" disabled maxlength="15" matInput placeholder="000.000.000-00">
+   </mat-form-field>
+    
+    <mat-form-field class="full-width" appearance="outline">
       <mat-label>RG</mat-label>
-      <input [(ngModel)]="aluno.rg" disabled required name="rg" maxlength="15" matInput placeholder="00.000.000">
-     <!--<mat-error *ngIf="rg.invalid">{{ errorValidCPF() }}</mat-error>--> 
+      <input [(ngModel)]="aluno.rg" disabled maxlength="15" matInput placeholder="00.000.000">
     </mat-form-field>
 
-  <mat-form-field class="full-width">
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Responsavel</mat-label>
+      <input [(ngModel)]="aluno.responsavel" maxlength="100" matInput placeholder="Ex. João Borges">
+    </mat-form-field>
+
+  <mat-form-field class="full-width"appearance="outline">
       <mat-label>Telefone</mat-label>
-      <input [(ngModel)]="aluno.telefone" disabled required maxlength="18" name="telefone" matInput placeholder="(00) 90000-0000">
+      <input [(ngModel)]="aluno.telefone" disabled maxlength="18" matInput placeholder="(00) 90000-0000">
     </mat-form-field>
 
-    <mat-form-field class="full-width">
+    <mat-form-field class="full-width" appearance="outline">
       <mat-label>Endereço</mat-label>
-      <input [(ngModel)]="aluno.endereco" disabled required name="endereco" maxlength="15" matInput placeholder="Ex. Rua: São Paulo">
-     <!--<mat-error *ngIf="endereco.invalid">{{ errorValidCPF() }}</mat-error>-->
+      <input [(ngModel)]="aluno.endereco" disabled maxlength="15" matInput placeholder="Ex. Rua: São Paulo">
     </mat-form-field>
-
-    <mat-form-field class="full-width">
-      <mat-label>Número</mat-label>
-      <input [(ngModel)]="aluno.numero" disabled required name="numero" maxlength="15" matInput placeholder="Ex. 930">
-      <!--<mat-error *ngIf="numero.invalid">{{ errorValidCPF() }}</mat-error>-->
-    </mat-form-field>
-
-    <mat-form-field class="full-width">
-      <mat-label>Bairro</mat-label>
-      <input [(ngModel)]="aluno.bairro" disabled required name="bairro" maxlength="15" matInput placeholder="Ex. Veredinha">
-     <!--<mat-error *ngIf="bairro.invalid">{{ errorValidCPF() }}</mat-error>--> 
-    </mat-form-field>
-
-    <mat-form-field class="full-width">
-      <mat-label>Cep</mat-label>
-      <input [(ngModel)]="aluno.cep" disabled required name="cep" maxlength="15" matInput placeholder="00.000-000">
-    </mat-form-field>
-
-    <mat-form-field class="full-width">
-      <mat-label>Cidade</mat-label>
-      <input [(ngModel)]="aluno.cidade" disabled required name="cidade" maxlength="15" matInput placeholder="Ex. Belo Horizonte">
-      <!-- <mat-error *ngIf="cidade.invalid">{{ errorValidCPF() }}</mat-error>-->
-    </mat-form-field>
-
-    <mat-form-field class="full-width">
-      <mat-label>Estado</mat-label>
-      <input [(ngModel)]="aluno.estado" disabled required name="estado" maxlength="15" matInput placeholder="Ex. Minas Gerais">
-     <!--<mat-error *ngIf="estado.invalid">{{ errorValidCPF() }}</mat-error>--> 
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Selecione a zona</mat-label>
-      <mat-select [(value)]="aluno.zona" disabled >
-        <mat-option value="urbano">Urbano</mat-option>
-        <mat-option value="rural">Rural</mat-option>
+    
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Selecione o Zona</mat-label>
+      <mat-select [(value)]="aluno.zona" disabled>
+        <mat-option value="Urbana">Urbana</mat-option>
+        <mat-option value="Rural">Rural</mat-option>
       </mat-select>
     </mat-form-field>
-
-    <mat-form-field class="fullWidth" appearance="legacy">
-      <mat-label>E-mail</mat-label>
-      <input
-      [(ngModel)]="aluno.email"
-      name="email"
-      required 
-      matInput 
-      placeholder="Ex.. fulano@mail.com">
-      <mat-icon matSuffix>email</mat-icon>
-    </mat-form-field>
-
-    <mat-form-field class="fullWidth" appearance="legacy">
-      <mat-label>Senha</mat-label>
-      <input
-      [(ngModel)]="aluno.senha"
-      name="senha"
-      required
-      type="password" 
-      matInput 
-      placeholder="Ex.. 1234">
-      <mat-icon matSuffix>password</mat-icon>
-    </mat-form-field>
+    
 
   <button class="mat-elevation-z8" (click)=" delete()" mat-stroked-button color="accent">EXCLUIR</button>
   <button class="mat-elevation-z8" (click)="voltar()" mat-stroked-button color="warn">CANCELAR</button>

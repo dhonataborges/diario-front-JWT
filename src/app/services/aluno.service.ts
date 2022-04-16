@@ -1,17 +1,18 @@
 import { API_CONFIG } from './../config/api.config';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Aluno } from '../models/aluno';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AlunoService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+            private snack: MatSnackBar) { }
 
   findById(id: any): Observable<Aluno> {
     return this.http.get<Aluno>(`${API_CONFIG.baseUrl}/alunos/${id}`);
@@ -31,5 +32,13 @@ export class AlunoService {
 
   delete(id: any): Observable<Aluno> {
     return this.http.delete<Aluno>(`${API_CONFIG.baseUrl}/alunos/${id}`);
+  }
+
+  message(msg: String): void {
+    this.snack.open(`${msg}`, 'OK', {
+      horizontalPosition: 'end',
+      verticalPosition: 'top',
+      duration: 4000
+    })
   }
 }

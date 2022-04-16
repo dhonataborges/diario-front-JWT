@@ -1,20 +1,18 @@
+import { Professor } from './../../../models/professor';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Profissional } from 'src/app/models/profissional';
-import { ProfissionalService } from 'src/app/services/profissional.service';
+import { ProfessorService } from 'src/app/services/professor.service';
 
 @Component({
-  selector: 'app-profissional-updade',
-  templateUrl: './profissional-updade.component.html',
-  styleUrls: ['./profissional-updade.component.css']
+  selector: 'app-professor-updade',
+  templateUrl: './professor-updade.component.html',
+  styleUrls: ['./professor-updade.component.css']
 })
-export class ProfissionalUpdadeComponent implements  OnInit {
+export class ProfessorUpdadeComponent implements  OnInit {
   
-  id_prof= '';
-  
-  prof: Profissional = {
+  prof: Professor = {
     id: '',
     nome: '',
     nascimento: '',
@@ -23,14 +21,7 @@ export class ProfissionalUpdadeComponent implements  OnInit {
     rg: '',
     telefone: '',
     endereco: '',
-    numero: '',
-    bairro: '',
-    cep: '',
-    cidade: '',
-    estado: '',
     zona: '',
-    turma: '',
-    nomeTurma: '',
     email: '',
     senha: '',
     perfis: []
@@ -39,38 +30,38 @@ export class ProfissionalUpdadeComponent implements  OnInit {
   nome = new FormControl('', [Validators.minLength(5)])
   nascimento = new FormControl('', [Validators.minLength(5)])
   sexo = new FormControl('', [Validators.minLength(5)])
-  cpf = new FormControl('', [Validators.minLength(5)])
   rg = new FormControl('', [Validators.minLength(10)])
   telefone = new FormControl('', [Validators.minLength(11)])
-  cargo = new FormControl('', [Validators.minLength(5)])
-  turma = new FormControl('', [Validators.minLength(5)])
-  disciplina = new FormControl('', [Validators.minLength(5)])
-  email = new FormControl('', [Validators.required, Validators.email])
-  senha = new FormControl('', [Validators.required])
+  endereco = new FormControl('', [Validators.maxLength(50)])
+  zona = new FormControl('', [Validators.minLength(5)])
+  cpf: FormControl = new FormControl(null, Validators.required);
+  email: FormControl = new FormControl(null, Validators.email);
+  senha: FormControl = new FormControl(null, Validators.minLength(3));
+
 
   constructor(
     private toast: ToastrService,
     private router: Router,
-    private service: ProfissionalService,
+    private service: ProfessorService,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.id_prof = this.route.snapshot.paramMap.get('id')!
+    this.prof.id = this.route.snapshot.paramMap.get('id');
     this.findById();
   }
 
   cancel(): void {
-    this.router.navigate(['profissionais'])
+    this.router.navigate(['professores'])
   }
 
   
   update(): void {
     this.service.update(this.prof).subscribe(() => {
-      this.toast.success('profissional atualizado com sucesso!', 'Atualizado');
-      this.router.navigate(['profissional']);
+      this.toast.success('Professor atualizado com sucesso!', 'Update');
+      this.router.navigate(['professores']);
     }, ex => {
       if(ex.error.errors) {
-        ex.error.errors.forEach((element: { message: string | undefined; }) => {
+        ex.error.errors.forEach(element => {
           this.toast.error(element.message);
         });
       } else {
@@ -81,14 +72,14 @@ export class ProfissionalUpdadeComponent implements  OnInit {
 
   addPerfil(perfil: any): void {
     if(this.prof.perfis.includes(perfil)) {
-      this.prof.perfis.splice(this.prof.perfis.indexOf(perfil), 1);
+      this.prof.perfis.splice(this.prof.perfis.indexOf(perfil), 2);
     } else {
       this.prof.perfis.push(perfil);
     }
   }
 
   findById(): void {
-    this.service.findById(this.id_prof).subscribe(resposta => {
+    this.service.findById(this.prof.id).subscribe(resposta => {
       this.prof = resposta;
     })
   }
@@ -135,27 +126,6 @@ export class ProfissionalUpdadeComponent implements  OnInit {
     return false;
   }
 
-  errorValidCargo() {
-    if (this.cargo.invalid) {
-      return 'Cargo é obrigatório!';
-    }
-    return false;
-  }
-
-  errorValidTurma() {
-    if (this.turma.invalid) {
-      return 'Turma é obrigatório!';
-    }
-    return false;
-  }
-
-  errorValidDisciplina() {
-    if (this.disciplina.invalid) {
-      return 'Disciplina é obrigatório!';
-    }
-    return false;
-  }
-
   errorValidEmail() {
     if (this.email.invalid) {
       return 'E-mail é obrigatório!';
@@ -166,6 +136,13 @@ export class ProfissionalUpdadeComponent implements  OnInit {
   errorValidSenha(){
     if (this.senha.invalid) {
       return 'Senha é obrigatório!';
+    }
+    return false;
+  }
+
+  errorValidEndereco() {
+    if (this.endereco.invalid) {
+      return 'Endereço é obrigatório!';
     }
     return false;
   }

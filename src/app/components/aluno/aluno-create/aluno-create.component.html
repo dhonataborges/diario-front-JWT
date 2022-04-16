@@ -1,13 +1,13 @@
 
 <form class="form mat-elevation-z8">
   <h1>Criando um novo Aluno</h1>
-  <mat-form-field class="full-width">
+  <mat-form-field class="full-width" appearance="outline">
     <mat-label>Nome</mat-label>
     <input [(ngModel)]="aluno.nome" [formControl]="nome" required name="nome" maxlength="100" matInput placeholder="Ex. João Borges">
     <mat-error *ngIf="nome.invalid">{{ errorValidNome() }}</mat-error>
   </mat-form-field>
 
-  <mat-form-field appearance="fill">
+  <mat-form-field class="full-width" appearance="outline">
   <mat-label>Data de Nascimento</mat-label>
   <input [(ngModel)]="aluno.nascimento" [ngModelOptions]="{standalone: true}"  required name="nascimento" matInput [matDatepicker]="picker">
   <mat-error *ngIf="nascimento.invalid">{{  errorValidNascimento() }}</mat-error>
@@ -15,7 +15,7 @@
   <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>
 
-  <mat-form-field appearance="fill">
+  <mat-form-field class="full-width" appearance="outline">
     <mat-label>Selecione o Genero</mat-label>
     <mat-select [(value)]="aluno.sexo" [formControl]="sexo" required name="sexo" required name="sexo" >
       <mat-option value="masculino">Masculino</mat-option>
@@ -25,93 +25,46 @@
   </mat-form-field>
   
 
-  <mat-form-field class="full-width">
+  <mat-form-field class="full-width" appearance="outline">
       <mat-label>CPF</mat-label>
       <input [(ngModel)]="aluno.cpf" [formControl]="cpf" required name="cpf" maxlength="15" matInput placeholder="000.000.000-00">
       <mat-error *ngIf="cpf.invalid">{{ errorValidCPF() }}</mat-error>
     </mat-form-field>
-
-    <mat-form-field class="full-width">
+    
+    <mat-form-field class="full-width" appearance="outline">
       <mat-label>RG</mat-label>
       <input [(ngModel)]="aluno.rg" [formControl]="rg" required name="rg" maxlength="15" matInput placeholder="00.000.000">
      <mat-error *ngIf="rg.invalid">{{ errorValidRG() }}</mat-error>
     </mat-form-field>
 
-  <mat-form-field class="full-width">
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Responsavel</mat-label>
+      <input [(ngModel)]="aluno.responsavel" [formControl]="responsavel" required name="responsavel" maxlength="100" matInput placeholder="Ex. João Borges">
+      <mat-error *ngIf="responsavel.invalid">{{ errorValidNome() }}</mat-error>
+    </mat-form-field>
+
+  <mat-form-field class="full-width"appearance="outline">
       <mat-label>Telefone</mat-label>
       <input [(ngModel)]="aluno.telefone" [formControl]="telefone" required name="telefone" maxlength="18" matInput placeholder="(00) 90000-0000">
       <mat-error *ngIf="telefone.invalid">{{ errorValidTelefone() }}</mat-error>
     </mat-form-field>
 
-    <mat-form-field class="full-width">
+    <mat-form-field class="full-width" appearance="outline">
       <mat-label>Endereço</mat-label>
       <input [(ngModel)]="aluno.endereco" [formControl]="endereco" required name="endereco" maxlength="15" matInput placeholder="Ex. Rua: São Paulo">
       <mat-error *ngIf="endereco.invalid">{{ errorValidEndereco() }}</mat-error>
     </mat-form-field>
-
-    <mat-form-field class="full-width">
-      <mat-label>Número</mat-label>
-      <input [(ngModel)]="aluno.numero" [formControl]="numero" required name="numero" maxlength="15" matInput placeholder="Ex. 930">
-      <mat-error *ngIf="numero.invalid">{{ errorValidNumero() }}</mat-error>
+    
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Selecione o Zona</mat-label>
+      <mat-select [(value)]="aluno.zona" [formControl]="zona" required name="zona" required name="zona" >
+        <mat-option value="Urbana">Urbana</mat-option>
+        <mat-option value="Rural">Rural</mat-option>
+      </mat-select>
+      <mat-error *ngIf="zona.invalid">{{  errorValidSexo() }}</mat-error>
     </mat-form-field>
+    
 
-    <mat-form-field class="full-width">
-      <mat-label>Bairro</mat-label>
-      <input [(ngModel)]="aluno.bairro"  [formControl]="bairro" required name="bairro" maxlength="15" matInput placeholder="Ex. Veredinha">
-      <mat-error *ngIf="bairro.invalid">{{ errorValidBairro() }}</mat-error>
-    </mat-form-field>
-
-    <mat-form-field class="full-width">
-      <mat-label>Cep</mat-label>
-      <input [(ngModel)]="aluno.cep"  [formControl]="cep"  required name="cep" maxlength="15" matInput placeholder="00.000-000">
-      <mat-error *ngIf="bairro.invalid">{{ errorValidCep() }}</mat-error>
-    </mat-form-field>
-
-    <mat-form-field class="full-width">
-      <mat-label>Cidade</mat-label>
-      <input [(ngModel)]="aluno.cidade" [formControl]="cidade" required name="cidade" maxlength="15" matInput placeholder="Ex. Belo Horizonte">
-      <mat-error *ngIf="cidade.invalid">{{  errorValidCidade() }}</mat-error>
-    </mat-form-field>
-
-    <mat-form-field class="full-width">
-      <mat-label>Estado</mat-label>
-      <input [(ngModel)]="aluno.estado" [formControl]="estado" required name="estado" maxlength="15" matInput placeholder="Ex. Minas Gerais">
-      <mat-error *ngIf="estado.invalid">{{ errorValidEstado() }}</mat-error>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Selecione a zona</mat-label>
-      <mat-select [(value)]="aluno.zona" [formControl]="zona" required name="zona">
-        <mat-option value="urbano">Urbano</mat-option>
-        <mat-option value="rural">Rural</mat-option>
-      </mat-select>      
-      <mat-error *ngIf="zona.invalid">{{ errorValidZona() }}</mat-error>
-    </mat-form-field>
-
-    <mat-form-field class="fullWidth" appearance="legacy">
-            <mat-label>E-mail</mat-label>
-            <input
-            [(ngModel)]="aluno.email"
-            name="email"
-            [formControl]="email"
-            required 
-            matInput 
-            placeholder="Ex.. fulano@mail.com">
-            <mat-icon matSuffix>email</mat-icon>
-          </mat-form-field>
-
-          <mat-form-field class="fullWidth" appearance="legacy">
-            <mat-label>Senha</mat-label>
-            <input
-            [(ngModel)]="aluno.senha"
-            name="senha"
-            [formControl]="senha"
-            required
-            type="password" 
-            matInput 
-            placeholder="Ex.. 1234">
-            <mat-icon matSuffix>password</mat-icon>
-          </mat-form-field>
   <button class="mat-elevation-z8" (click)="create()" mat-stroked-button color="accent">CRIAR</button>
   <button class="mat-elevation-z8" (click)="cancel()" mat-stroked-button color="warn">CANCELAR</button>
 </form>

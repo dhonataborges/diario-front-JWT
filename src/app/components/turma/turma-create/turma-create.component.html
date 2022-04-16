@@ -1,23 +1,33 @@
 
 <form class="form mat-elevation-z8">
     <h1>Criando uma Turma</h1>
-    <mat-form-field class="full-width">
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Codigo da Turma</mat-label>
+      <input [(ngModel)]="turma.codTurma" required name="codTurma" maxlength="100" matInput placeholder="Ex. João Borges">
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
       <mat-label>Nome</mat-label>
       <input [(ngModel)]="turma.nomeTurma" required name="nomeTurma" maxlength="100" matInput placeholder="Ex. João Borges">
-       </mat-form-field>
-  
-       <div class="aluno">
-        <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Selecione um Aluno</mat-label>
-            <mat-select
-            [(ngModel)]="turma.aluno"
-            name="alunos" 
-            [formControl]="aluno" 
-            required>
-              <mat-option *ngFor="let al of alunos" value="{{ al.id }}">{{ al.nome }}</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Selecione o Turno</mat-label>
+      <mat-select [(value)]="turma.turno" [formControl]="turno" required name="turno">
+        <mat-option value="matutino">Matutino</mat-option>
+        <mat-option value="vespertino">Vespertino</mat-option>
+      </mat-select>
+      <mat-error *ngIf="turno.invalid">{{  errorValidTurno() }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Ano de Criação</mat-label>
+      <input [(ngModel)]="turma.anoCriacao" [ngModelOptions]="{standalone: true}" required name="nascimento" matInput [matDatepicker]="picker">
+      <mat-error *ngIf="anoCriacao.invalid">{{  errorValidAnoCriacao() }}</mat-error>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
 
         <div class="aluno">
             <mat-form-field class="full-width" appearance="outline">
@@ -25,12 +35,13 @@
                 <mat-select
                 [(ngModel)]="turma.professor"
                 name="aluno" 
-                [formControl]="aluno" 
+                [formControl]="professor" 
                 required>
                   <mat-option *ngFor="let prof of professores" value="{{ prof.id }}">{{ prof.nome }}</mat-option>
                 </mat-select>
               </mat-form-field>
             </div>
+
     <button class="mat-elevation-z8" (click)="create()" mat-stroked-button color="accent">CRIAR</button>
     <button class="mat-elevation-z8" (click)="cancel()" mat-stroked-button color="warn">CANCELAR</button>
   </form>

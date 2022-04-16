@@ -1,10 +1,10 @@
+import { Professor } from './../../../models/professor';
 import { Disciplina } from 'src/app/models/disciplina';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { Profissional } from 'src/app/models/profissional';
-import { ProfissionalService } from 'src/app/services/profissional.service';
+import { ProfessorService } from 'src/app/services/professor.service';
 import { ToastrService } from 'ngx-toastr';
 import { Cargo } from 'src/app/models/cargo';
 import { DisciplinaService } from 'src/app/services/disciplina.service';
@@ -13,18 +13,13 @@ import { TurmaService } from 'src/app/services/turma.service';
 import { Turma } from 'src/app/models/turma';
 
 @Component({
-  selector: 'app-profissional-create',
-  templateUrl: './profissional-create.component.html',
-  styleUrls: ['./profissional-create.component.css']
+  selector: 'app-professor-create',
+  templateUrl: './professor-create.component.html',
+  styleUrls: ['./professor-create.component.css']
 })
-export class ProfissionalCreateComponent implements OnInit {
-
-  cursos1: Disciplina[] = [{id: '', nomeDisciplina: '', professores:[]}];
-
-  cargos1: Cargo[] = [{id: '', nomeCargo: '', professores:[] }];
-
+export class ProfessorCreateComponent implements OnInit {
   
-   prof: Profissional = {
+   prof: Professor = {
     id: '',
     nome: '',
     nascimento: '',
@@ -33,81 +28,42 @@ export class ProfissionalCreateComponent implements OnInit {
     rg: '',
     telefone: '',
     endereco: '',
-	  numero: '',
-	  bairro: '',
-    cep: '',
-	  cidade: '',
-    estado: '',
     zona: '',
-	  turma: '',
-    nomeTurma: '',
     email: '',
     senha: '',
     perfis: []
   }
-  
- /* disciplinas: Disciplina[] = [];
-  cargos: Cargo[] = [];*/
-  turmas: Turma[] = [];
 
   nome = new FormControl('', [Validators.minLength(5)])
   nascimento = new FormControl('', [Validators.minLength(5)])
   sexo = new FormControl('', [Validators.minLength(5)])
   rg = new FormControl('', [Validators.minLength(10)])
   telefone = new FormControl('', [Validators.minLength(11)])
-  endereco = new FormControl('', [Validators.minLength(5)])
-  numero = new FormControl('', [Validators.minLength(1)])
-  bairro = new FormControl('', [Validators.minLength(5)])
-  cep = new FormControl('', [Validators.minLength(5)])
-  cidade = new FormControl('', [Validators.minLength(5)])
-  estado = new FormControl('', [Validators.minLength(5)])
+  endereco = new FormControl('', [Validators.maxLength(50)])
   zona = new FormControl('', [Validators.minLength(5)])
   cpf: FormControl = new FormControl(null, Validators.required);
   email: FormControl = new FormControl(null, Validators.email);
   senha: FormControl = new FormControl(null, Validators.minLength(3));
 
-  cargos = this.cargos1;
-  disciplinas = this.cursos1;
-  
-  constructor(
+    constructor(
     private toast: ToastrService,
     private router: Router,
-    private service: ProfissionalService,
+    private service: ProfessorService,
     private serviceDiscip: DisciplinaService,
     private serviceCargo: CargoService,
     private serviceTurma: TurmaService){}
     
   ngOnInit(): void {
-    this.listarDisciplinas();
-   // this.listarCargos();
-    this.listarTurmas();
   }
-  listarDisciplinas():void {
-    this.serviceDiscip.findAll().subscribe((resposta) => {
-      this.disciplinas = resposta;
-
-    })
-  }
-  listarCargos():void {
-    this.serviceCargo.findAll().subscribe((resposta) => {
-      this.cargos = resposta;
-    })
-  }
-
-  listarTurmas():void {
-    this.serviceTurma.findAll().subscribe((resposta) => {
-      this.turmas = resposta;
-    })
-  }
-
+  
   cancel(): void {
-    this.router.navigate(['profissionais'])
+    this.router.navigate(['professores'])
   }
   
   create(): void {
     this.service.create(this.prof).subscribe(() => {
-      this.toast.success('Profissional cadastrado com sucesso!', 'Cadastro');
-      this.router.navigate(['profissionais']);
+      this.toast.success('professor cadastrado com sucesso!', 'Cadastro');
+      this.router.navigate(['professores']);
     }, ex => {
       if(ex.error.errors) {
         ex.error.errors.forEach((element: { message: string | undefined; }) => {
@@ -121,7 +77,7 @@ export class ProfissionalCreateComponent implements OnInit {
 
   addPerfil(perfil: any): void {
     if(this.prof.perfis.includes(perfil)) {
-      this.prof.perfis.splice(this.prof.perfis.indexOf(perfil), 1);
+      this.prof.perfis.splice(this.prof.perfis.indexOf(perfil), 2);
     } else {
       this.prof.perfis.push(perfil);
     }
@@ -177,41 +133,6 @@ export class ProfissionalCreateComponent implements OnInit {
   errorValidEndereco() {
     if (this.endereco.invalid) {
       return 'Endereço é obrigatório!';
-    }
-    return false;
-  }
-
-  errorValidNumero() {
-    if (this.numero.invalid) {
-      return 'Número é obrigatório!';
-    }
-    return false;
-  }
-
-  errorValidBairro() {
-    if (this.bairro.invalid) {
-      return 'Bairro é obrigatório!';
-    }
-    return false;
-  }
-
-  errorValidCep() {
-    if (this.cep.invalid) {
-      return 'Adicione um Cep valido!';
-    }
-    return false;
-  }
-
-  errorValidCidade() {
-    if (this.cidade.invalid) {
-      return 'Cidade é obrigatório!';
-    }
-    return false;
-  }
-
-  errorValidEstado() {
-    if (this.estado.invalid) {
-      return 'Estado é obrigatório!';
     }
     return false;
   }

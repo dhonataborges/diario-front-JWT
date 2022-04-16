@@ -1,10 +1,9 @@
-import { ProfissionalService } from 'src/app/services/profissional.service';
-import { Profissional } from 'src/app/models/profissional';
 import { FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Disciplina } from 'src/app/models/disciplina';
 import { Router } from '@angular/router';
 import { DisciplinaService } from 'src/app/services/disciplina.service';
+import { ProfessorService } from 'src/app/services/professor.service';
 
 @Component({
   selector: 'app-disciplina-create',
@@ -26,7 +25,7 @@ export class DisciplinaCreateComponent implements OnInit {
   constructor(
     private router: Router,
     private service: DisciplinaService,
-    private serviceProf: ProfissionalService) { }
+    private serviceProf: ProfessorService) { }
 
   ngOnInit(): void {
   }

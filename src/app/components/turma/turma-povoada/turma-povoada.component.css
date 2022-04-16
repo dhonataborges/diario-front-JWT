@@ -1,0 +1,51 @@
+.form {
+  width: 80%;
+  margin: auto;
+  padding: 2rem 2rem;
+}
+
+.full-width {
+    width: 50%;
+    padding: 0px 10px 0px 10px;
+}
+
+.input{
+    display: flex;
+}
+
+h1 {
+    text-align: center;
+    font-size: 1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 4rem;
+}
+
+table.mat-table {
+    width: 95%;    
+    margin-top: 1rem;
+  }
+  
+  
+  th.mat-header-cell {
+    padding: 0px 03px;
+    text-align: center;
+  }
+  
+  td.mat-cell {
+    padding: 0px 10px;
+    text-align: center;
+  }
+  
+  .container {
+    width: 95%;
+    overflow: auto;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+button {  
+  width: 100%;
+  margin-bottom: 1rem;
+  
+}
+  

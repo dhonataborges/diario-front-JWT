@@ -1,6 +1,6 @@
-import { ProfissionalService } from 'src/app/services/profissional.service';
-import { Profissional } from 'src/app/models/profissional';
-import { Disciplina } from './../../../models/disciplina';
+import { Professor } from './../../../models/professor';
+import { ProfessorService } from './../../../services/professor.service';
+import { Disciplina } from '../../../models/disciplina';
 import { DisciplinaService } from 'src/app/services/disciplina.service';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
@@ -8,21 +8,21 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-profissional-read',
-  templateUrl: './profissional-read.component.html',
-  styleUrls: ['./profissional-read.component.css']
+  selector: 'app-professor-read',
+  templateUrl: './professor-read.component.html',
+  styleUrls: ['./professor-read.component.css']
 })
-export class ProfissionalReadComponent implements AfterViewInit {
+export class ProfessorReadComponent implements AfterViewInit {
 
-profissionais: Profissional[] = [];
+profissionais: Professor[] = [];
 
-  displayedColumns: string[] = ['nome', 'nascimento', 'sexo', 'cpf', 'rg', 'telefone','cargos', 'turmas', 'disciplinas', 'action'];
-  dataSource = new MatTableDataSource<Profissional>(this.profissionais);
+  displayedColumns: string[] = ['id', 'nome', 'nascimento', 'sexo', 'cpf', 'rg', 'telefone','endereco', 'zona', 'action'];
+  dataSource = new MatTableDataSource<Professor>(this.profissionais);
  
   @ViewChild(MatPaginator) paginator!: MatPaginator;
    
   constructor(
-    private service : ProfissionalService,
+    private service : ProfessorService,
     private router : Router,
     private disciplinaService: DisciplinaService) {}
   
@@ -34,14 +34,14 @@ profissionais: Profissional[] = [];
     this.service.findAll().subscribe((resposta) => {
      // this.listarDisciplina();
       this.profissionais = resposta;
-      this.dataSource = new MatTableDataSource<Profissional>(this.profissionais);
+      this.dataSource = new MatTableDataSource<Professor>(this.profissionais);
       this.dataSource.paginator = this.paginator;
 
     })
   }
 
   navigateToCreate():void {
-    this.router.navigate(['profissionais/create'])
+    this.router.navigate(['professores/create'])
   }
 
    /** O METODO listarCliente FAZ COM QUE APAREÇA O NOME DO CLIENTE NA COLUNA CLIENTE DA TABELA AO IVÉS DO ID. */

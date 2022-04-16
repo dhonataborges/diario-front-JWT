@@ -1,3 +1,4 @@
+import { TurmaPovoadaComponent } from './components/turma/turma-povoada/turma-povoada.component';
 import { HeaderComponent } from './components/header/header.component';
 import { TurmaCreateComponent } from './components/turma/turma-create/turma-create.component';
 import { TurmaReadComponent } from './components/turma/turma-read/turma-read.component';
@@ -19,16 +20,16 @@ import { ObservacoesCreateComponent } from './components/observacoes/observacoes
 import { ObservacoesDeleteComponent } from './components/observacoes/observacoes-delete/observacoes-delete.component';
 import { ObservacoesReadComponent } from './components/observacoes/observacoes-read/observacoes-read.component';
 import { ObservacoesUpdateComponent } from './components/observacoes/observacoes-update/observacoes-update.component';
-import { ProfissionalCreateComponent } from './components/profissional/profissional-create/profissional-create.component';
-import { ProfissionalDeleteComponent } from './components/profissional/profissional-delete/profissional-delete.component';
-import { ProfissionalReadComponent } from './components/profissional/profissional-read/profissional-read.component';
-import { ProfissionalUpdadeComponent } from './components/profissional/profissional-updade/profissional-updade.component';
 import { NavComponent } from './components/nav/nav.component';
 import { DisciplinaCreateComponent } from './components/disciplina/disciplina-create/disciplina-create.component';
 import { DisciplinaUpdateComponent } from './components/disciplina/disciplina-update/disciplina-update.component';
 import { DisciplinaDeleteComponent } from './components/disciplina/disciplina-delete/disciplina-delete.component';
 import { AuthGuard } from './auth/auth.guard';
 import { LoginComponent } from './components/login/login.component';
+import { ProfessorReadComponent } from './components/professor/professor-read/professor-read.component';
+import { ProfessorCreateComponent } from './components/professor/professor-create/professor-create.component';
+import { ProfessorUpdadeComponent } from './components/professor/professor-updade/professor-updade.component';
+import { ProfessorDeleteComponent } from './components/professor/professor-delete/professor-delete.component';
 
 const routes: Routes = [
       { path: 'login', component: LoginComponent },
@@ -41,22 +42,22 @@ const routes: Routes = [
           { path: 'alunos/update/:id', component: AlunoUpdateComponent},
           { path: 'alunos/delete/:id', component: AlunoDeleteComponent},
 
-          { path: 'profissionais', component: ProfissionalReadComponent},
-          { path: 'profissionais/create', component: ProfissionalCreateComponent},
-          { path: 'profissionais/update/:id', component: ProfissionalUpdadeComponent},
-          { path: 'profissionais/delete/:id', component: ProfissionalDeleteComponent},
+          { path: 'professores', component: ProfessorReadComponent},
+          { path: 'professores/create', component: ProfessorCreateComponent},
+          { path: 'professores/update/:id', component: ProfessorUpdadeComponent},
+          { path: 'professores/delete/:id', component: ProfessorDeleteComponent},
 
           { path: 'observacoes', component: ObservacoesReadComponent},
           { path: 'observacoes/create', component: ObservacoesCreateComponent},
           { path: 'observacoes/update/:id', component: ObservacoesUpdateComponent},
           { path: 'observacoes/delete/:id', component: ObservacoesDeleteComponent},
-          { path: 'observacoes/:id', component: ObservacoesViewsComponent},
+          { path: 'observacoes/views/:id', component: ObservacoesViewsComponent},
 
           { path: 'aulasLecionadas', component: AulasLecionadasReadComponent},
           { path: 'aulasLecionadas/create', component: AulasLecionadasCreateComponent},
           { path: 'aulasLecionadas/update/:id', component: AulasLecionadasUpdateComponent},      
           { path: 'aulasLecionadas/delete/:id', component: AulasLecionadasDeleteComponent},
-          { path: 'aulasLecionadas/:id', component: AulasLecionadasViewsComponent},
+          { path: 'aulasLecionadas/views/:id', component: AulasLecionadasViewsComponent},
 
           { path: 'disciplinas', component: DisciplinaReadComponent},
           { path: 'disciplinas/create', component: DisciplinaCreateComponent},
@@ -64,7 +65,9 @@ const routes: Routes = [
           { path: 'disciplinas/delete/:id', component: DisciplinaDeleteComponent},
 
           { path: 'turmas', component: TurmaReadComponent},
-          { path: 'turma/create', component: TurmaCreateComponent},
+          { path: 'turmas/create', component: TurmaCreateComponent},
+          { path: 'turmas/adicionar/:id', component: TurmaPovoadaComponent},
+
           { path: 'disciplinas/update/:id', component: DisciplinaUpdateComponent},
           { path: 'disciplinas/delete/:id', component: DisciplinaDeleteComponent}
         ]
