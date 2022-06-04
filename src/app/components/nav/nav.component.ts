@@ -18,9 +18,8 @@ export class NavComponent implements OnInit {
     this.router.navigate(["home"]);
   }
 
-  logout() {
+  sair() {
     this.router.navigate(['login']);
     this.authService.logout();
-    this.toast.info('Logout realizado com sucesso!', 'Logout');
   }
 }

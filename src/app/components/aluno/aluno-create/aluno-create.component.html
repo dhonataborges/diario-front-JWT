@@ -51,7 +51,7 @@
 
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Endereço</mat-label>
-      <input [(ngModel)]="aluno.endereco" [formControl]="endereco" required name="endereco" maxlength="15" matInput placeholder="Ex. Rua: São Paulo">
+      <input [(ngModel)]="aluno.endereco" [formControl]="endereco" required name="endereco" maxlength="500" matInput placeholder="Ex. Rua: São Paulo">
       <mat-error *ngIf="endereco.invalid">{{ errorValidEndereco() }}</mat-error>
     </mat-form-field>
     
@@ -64,7 +64,19 @@
       <mat-error *ngIf="zona.invalid">{{  errorValidSexo() }}</mat-error>
     </mat-form-field>
     
-
+    <div class="turma">
+      <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Selecione Sala Turma</mat-label>
+          <mat-select
+          [(ngModel)]="aluno.turma"
+          name="turma" 
+          [formControl]="turma" 
+          required>
+            <mat-option *ngFor="let turma of turmas" value="{{ turma.id }}">{{ turma.sala }}</mat-option>
+          </mat-select>
+        </mat-form-field>   
+    </div>
+    
   <button class="mat-elevation-z8" (click)="create()" mat-stroked-button color="accent">CRIAR</button>
   <button class="mat-elevation-z8" (click)="cancel()" mat-stroked-button color="warn">CANCELAR</button>
 </form>

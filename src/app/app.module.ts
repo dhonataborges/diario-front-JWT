@@ -23,6 +23,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatMenuModule} from '@angular/material/menu';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
@@ -52,9 +53,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxMaskModule } from 'ngx-mask';
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
-import { TurmaPovoadaComponent } from './components/turma/turma-povoada/turma-povoada.component';
 import { DisciplinaCreateComponent } from './components/disciplina/disciplina-create/disciplina-create.component';
-
+import { TurmaDeleteComponent } from './components/turma/turma-delete/turma-delete.component';
+import { TurmaUpdateComponent } from './components/turma/turma-update/turma-update.component';
 
 
 @NgModule({
@@ -88,7 +89,8 @@ import { DisciplinaCreateComponent } from './components/disciplina/disciplina-cr
     ObservacoesViewsComponent,
     AulasLecionadasViewsComponent,
     LoginComponent,
-    TurmaPovoadaComponent
+    TurmaDeleteComponent,
+    TurmaUpdateComponent
   ],
   imports: [
     AppRoutingModule,
@@ -113,7 +115,7 @@ import { DisciplinaCreateComponent } from './components/disciplina/disciplina-cr
     MatSnackBarModule,
     MatMenuModule,
     MatNativeDateModule,
-    MatCheckboxModule,   
+    MatCheckboxModule, 
     ToastrModule.forRoot({
       timeOut: 4000,
       closeButton: true,

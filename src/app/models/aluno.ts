@@ -9,4 +9,6 @@ export interface Aluno {
     telefone: String;
     endereco: String;
 	zona: String
+    turma: any;
+    salaTurma: any;
 }

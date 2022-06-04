@@ -55,8 +55,18 @@
         <mat-option value="Rural">Rural</mat-option>
       </mat-select>
     </mat-form-field>
-    
+
+    <div class="turma">
+      <mat-form-field class="full-width" appearance="outline">
+          <mat-label>TURMA SALA: {{ aluno.salaTurma }}</mat-label>
+          <mat-select
+          [(ngModel)]="aluno.turma"
+          name="turma" disabled>
+            <mat-option *ngFor="let turma of turmas" value="{{ turma.id }}">{{ turma.sala }}</mat-option>
+          </mat-select>
+        </mat-form-field>   
+    </div>
 
   <button class="mat-elevation-z8" (click)=" delete()" mat-stroked-button color="accent">EXCLUIR</button>
-  <button class="mat-elevation-z8" (click)="voltar()" mat-stroked-button color="warn">CANCELAR</button>
+  <button class="mat-elevation-z8" (click)="cancelar()" mat-stroked-button color="warn">CANCELAR</button>
 </form>

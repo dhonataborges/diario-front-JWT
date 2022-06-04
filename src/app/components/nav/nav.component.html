@@ -1,12 +1,12 @@
 <mat-drawer-container class="container" autosize>
     <mat-drawer #drawer class="sidenav" mode="side">
-        <img src="assets/img/side-image.svg" alt="Imagem de navegação" />
+        <img src="assets/img/logo site.png" alt="Imagem de navegação" />
         <mat-nav-list class="nav-list">
 
             <a mat-list-item routerLink="home">
                 <i class="material-icons">home</i>Home
             </a>
-
+            
             <a mat-list-item routerLink="aulasLecionadas">
                 <i class="material-icons">library_books</i>Aulas Lecionadas
             </a>
@@ -39,8 +39,7 @@
                 </mat-menu>
                 <i class="material-icons">group_add</i>Cadastros
             </a>
-
-            <a mat-list-item routerLink="/">
+            <a mat-list-item (click)="sair()">
                 <i class="material-icons">exit_to_app</i>Sair
             </a>
 

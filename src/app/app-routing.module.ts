@@ -1,4 +1,5 @@
-import { TurmaPovoadaComponent } from './components/turma/turma-povoada/turma-povoada.component';
+import { TurmaUpdateComponent } from './components/turma/turma-update/turma-update.component';
+import { TurmaDeleteComponent } from './components/turma/turma-delete/turma-delete.component';
 import { HeaderComponent } from './components/header/header.component';
 import { TurmaCreateComponent } from './components/turma/turma-create/turma-create.component';
 import { TurmaReadComponent } from './components/turma/turma-read/turma-read.component';
@@ -65,11 +66,9 @@ const routes: Routes = [
           { path: 'disciplinas/delete/:id', component: DisciplinaDeleteComponent},
 
           { path: 'turmas', component: TurmaReadComponent},
-          { path: 'turmas/create', component: TurmaCreateComponent},
-          { path: 'turmas/adicionar/:id', component: TurmaPovoadaComponent},
-
-          { path: 'disciplinas/update/:id', component: DisciplinaUpdateComponent},
-          { path: 'disciplinas/delete/:id', component: DisciplinaDeleteComponent}
+          { path: 'turmas/create', component: TurmaCreateComponent}, 
+          { path: 'turmas/update/:id', component: TurmaUpdateComponent},
+          { path: 'turmas/delete/:id', component: TurmaDeleteComponent}
         ]
       }
     ];

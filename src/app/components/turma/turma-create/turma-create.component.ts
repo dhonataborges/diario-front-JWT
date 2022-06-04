@@ -1,3 +1,5 @@
+import { ToastrService } from 'ngx-toastr';
+import { SerieNivelSubnivel } from './../../../models/serieNivelSubnivel';
 import { Professor } from './../../../models/professor';
 import { Turma } from './../../../models/turma';
 import { FormControl, Validators } from '@angular/forms';
@@ -7,6 +9,7 @@ import { Aluno } from 'src/app/models/aluno';
 import { Component, OnInit } from '@angular/core';
 import { TurmaService } from 'src/app/services/turma.service';
 import { ProfessorService } from 'src/app/services/professor.service';
+import { SerieNivelSubnivelService } from 'src/app/services/serieNivelSubnivel.service ';
 
 @Component({
   selector: 'app-turma-create',
@@ -16,31 +19,27 @@ import { ProfessorService } from 'src/app/services/professor.service';
 export class TurmaCreateComponent implements OnInit {
  
   turma: Turma = {
-    codTurma: '',
-    nomeTurma: '',
-    turno: '',
-    anoCriacao: '',
-    professor: '',
-    nomeProfessor: ''
+    anoLetivo: '',
+    sala: '',
+    serieNivelSubnivel: '',
+    nomeSerieNivelSubnivel: ''
   }
 
-  alunos: Aluno[] = [];
-  professores: Professor[] = [];
+  series: SerieNivelSubnivel[] = [];
 
-  codTurma: FormControl = new FormControl(null, [Validators.required]);
-  nomeTurma: FormControl = new FormControl(null, [Validators.required]);
-  turno: FormControl = new FormControl(null, [Validators.required]);
-  anoCriacao: FormControl = new FormControl(null, [Validators.required]);
-  professor: FormControl = new FormControl(null, [Validators.required]);
+  anoLetivo: FormControl = new FormControl(null, [Validators.required]);
+  sala: FormControl = new FormControl(null, [Validators.required]);
+  serieNivelSubnivel: FormControl = new FormControl(null, [Validators.required]);
 
   constructor(
-    private professorService: ProfessorService,
+    private serieService: SerieNivelSubnivelService,
     private turmaService: TurmaService,
+    private toast: ToastrService,   
     private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.listaProf();
+    this.listarSerie();
   }
 
   cancel(): void {
@@ -50,24 +49,18 @@ export class TurmaCreateComponent implements OnInit {
   create(): void {
     this.turmaService.create(this.turma).subscribe((resposta) => {
       this.router.navigate(['turmas'])
-      this.turmaService.message('Turma adicionadas com sucesso!')
+      this.toast.success('Turma adicionadas com sucesso!')
     })
   }
 
-  listaProf(): void {
-    this.professorService.findAll().subscribe(resposta => {
-      this.professores = resposta;
+  listarSerie(): void {
+    this.serieService.findAll().subscribe(resposta => {
+      this.series = resposta;
     })
   }
   errorValidAnoCriacao() {
-    if (this.anoCriacao.invalid) {
+    if (this.anoLetivo.invalid) {
       return 'Ano de Criação é obrigatório!';
-    }
-    return false;
-  }
-  errorValidTurno() {
-    if (this.turno.invalid) {
-      return 'O turno é obrigatório!';
     }
     return false;
   }

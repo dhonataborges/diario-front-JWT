@@ -1,10 +1,9 @@
 <div class="container">
     <form class="form mat-elevation-z8">
-  
+      <img src="assets/img/logo site.png" alt="Help Desk - Dicas de um DEV">
+      
       <h1>Diário de Classe Web</h1>
-  
-      <img src="assets/img/login-image.svg" alt="Help Desk - Dicas de um DEV">
-  
+      
       <mat-form-field class="full-width" appearance="outline">
         <mat-label>E-mail</mat-label>
         <input 
@@ -30,7 +29,7 @@
           <mat-icon matSuffix>password</mat-icon>
         </mat-form-field>
   
-        <button (click)="logar()" [disabled]="!validaCampos()" class="full-width mat-elevation-z4" mat-stroked-button color="primary">Login</button>
+        <button (click)="logar()" (click)="validaCampos()"  class="full-width mat-elevation-z4" mat-stroked-button>LOGIN</button>
   
     </form>
   </div>

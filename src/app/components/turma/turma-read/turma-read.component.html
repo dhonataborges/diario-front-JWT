@@ -13,43 +13,21 @@
       </ng-container>
 
       <!-- Nome Column -->
-      <ng-container matColumnDef="codTurma">
-        <th mat-header-cell *matHeaderCellDef> CODIGO DA TURMA</th>
-        <td mat-cell *matCellDef="let element"> {{element.codTurma}} </td>
+      <ng-container matColumnDef="anoLetivo">
+        <th mat-header-cell *matHeaderCellDef> ANO LETIVO</th>
+        <td mat-cell *matCellDef="let element"> {{element.anoLetivo}} </td>
       </ng-container>
       
       <!-- Nome Column -->
-      <ng-container matColumnDef="nomeTurma">
-        <th mat-header-cell *matHeaderCellDef> NOME DA TURMA</th>
-        <td mat-cell *matCellDef="let element"> {{element.nomeTurma}} </td>
+      <ng-container matColumnDef="sala">
+        <th mat-header-cell *matHeaderCellDef> SALA</th>
+        <td mat-cell *matCellDef="let element"> {{element.sala}} </td>
       </ng-container>
 
       <!-- Nome Column -->
-      <ng-container matColumnDef="turno">
-        <th mat-header-cell *matHeaderCellDef> TURNO </th>
-        <td mat-cell *matCellDef="let element"> {{element.turno}} </td>
-      </ng-container>
-
-      <!-- Nome Column -->
-      <ng-container matColumnDef="anoCriacao">
-        <th mat-header-cell *matHeaderCellDef> ANO DE CRIAÇÃO</th>
-        <td mat-cell *matCellDef="let element"> {{element.anoCriacao}} </td>
-      </ng-container>
-
-      <!-- Nome Column -->
-      <ng-container matColumnDef="nomeProfessor">
-        <th mat-header-cell *matHeaderCellDef> PROFESSOR </th>
-        <td mat-cell *matCellDef="let element"> {{element.nomeProfessor}} </td>
-      </ng-container>
-
-      <!-- Nome Column -->
-      <ng-container matColumnDef="adicionarAlunos">
-        <th mat-header-cell *matHeaderCellDef> POVOAR TURMA </th>
-        <td mat-cell *matCellDef="let element"> 
-          <a routerLink="adicionar/{{ element.id }}">
-            <i id="add_circle" color="primary" class="material-icons">add_circle</i>
-          </a>
-        </td>
+      <ng-container matColumnDef="nomeSerieNivelSubnivel">
+        <th mat-header-cell *matHeaderCellDef> SERIE </th>
+        <td mat-cell *matCellDef="let element"> {{element.nomeSerieNivelSubnivel}} </td>
       </ng-container>
 
      <!-- Ações Column -->

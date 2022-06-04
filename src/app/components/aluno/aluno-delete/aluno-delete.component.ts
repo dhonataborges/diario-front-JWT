@@ -1,3 +1,5 @@
+import { TurmaService } from 'src/app/services/turma.service';
+import { Turma } from 'src/app/models/turma';
 import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
@@ -12,8 +14,6 @@ import { AlunoService } from 'src/app/services/aluno.service';
 })
 export class AlunoDeleteComponent implements OnInit {
 
-  id_aluno = ''
-
   aluno: Aluno = {
     id: '',
     nome: '',
@@ -24,34 +24,47 @@ export class AlunoDeleteComponent implements OnInit {
     responsavel: '',
     telefone: '',
     endereco: '',
-    zona: ''
+    zona: '',
+    turma: '',
+    salaTurma: ''
   }
+
+  turmas: Turma[] = [];
 
   constructor(
     private service: AlunoService,
     private toast: ToastrService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private turmaService: TurmaService
   ) { }
 
   ngOnInit(): void {
     this.aluno.id = this.route.snapshot.paramMap.get('id');
     this.findById();
+    this.listarTurmas();
   }
 
   findById(): void {
     this.service.findById(this.aluno.id).subscribe(resposta => {
       this.aluno = resposta;
+    }, ex => {
+      this.toast.error(ex.error.error);
     });
   }
 
+  listarTurmas(): void {
+    this.turmaService.findAll().subscribe(resposta => {
+      this.turmas = resposta;
+    })
+  }
   delete(): void {
     this.service.delete(this.aluno.id).subscribe(() => {
       this.toast.success('aluno deletato com sucesso!', 'Delete');
       this.router.navigate(['alunos']);
     }, ex => {
       if(ex.error.errors) {
-        ex.error.errors.forEach((element: { message: string | undefined; }) => {
+        ex.error.errors.forEach(element => {
           this.toast.error(element.message);
         });
       } else {
@@ -60,7 +73,7 @@ export class AlunoDeleteComponent implements OnInit {
     });
   }
 
-  voltar(): void {
+  cancelar(): void {
     this.router.navigate(['alunos'])
   }
 

@@ -1,30 +1,28 @@
 
 <form class="form mat-elevation-z8">
-    <h1>Criando uma Turma</h1>
+    <h1>Remover uma Turma</h1>
 
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Ano Letivo</mat-label>
-      <input [(ngModel)]="turma.anoLetivo" required name="anoLetivo" maxlength="100" matInput placeholder="Ex. 2022, 2023, 2024...">
+      <input [(ngModel)]="turma.anoLetivo" disabled name="anoLetivo" matInput placeholder="Ex. 2022, 2023, 2024...">
     </mat-form-field>
 
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Sala</mat-label>
-      <input [(ngModel)]="turma.sala" required name="sala" maxlength="100" matInput placeholder="Ex. 01,02,03...">
+      <input [(ngModel)]="turma.sala"  disabled name="sala" matInput placeholder="Ex. 01,02,03...">
     </mat-form-field>
 
     <div class="serie">
       <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Selecione um Serie</mat-label>
+          <mat-label> SALA: {{ turma.nomeSerieNivelSubnivel }}</mat-label>
           <mat-select
           [(ngModel)]="turma.serieNivelSubnivel"
           name="tecnico" 
-          [formControl]="serieNivelSubnivel" 
-          required>
+          disabled >
             <mat-option *ngFor="let serie of series" value="{{ serie.id }}">{{ serie.descricao }}</mat-option>
           </mat-select>
         </mat-form-field>
   </div>
-
-    <button class="mat-elevation-z8" (click)="create()" mat-stroked-button color="accent">CRIAR</button>
+    <button class="mat-elevation-z8" (click)="delete()" mat-stroked-button color="accent">EXCLUIR</button>
     <button class="mat-elevation-z8" (click)="cancel()" mat-stroked-button color="warn">CANCELAR</button>
   </form>

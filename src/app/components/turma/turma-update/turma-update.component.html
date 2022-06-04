@@ -14,10 +14,10 @@
 
     <div class="serie">
       <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Selecione um Serie</mat-label>
+          <mat-label> SALA: {{ turma.nomeSerieNivelSubnivel }}</mat-label>
           <mat-select
           [(ngModel)]="turma.serieNivelSubnivel"
-          name="tecnico" 
+          name="serie" 
           [formControl]="serieNivelSubnivel" 
           required>
             <mat-option *ngFor="let serie of series" value="{{ serie.id }}">{{ serie.descricao }}</mat-option>
@@ -25,6 +25,6 @@
         </mat-form-field>
   </div>
 
-    <button class="mat-elevation-z8" (click)="create()" mat-stroked-button color="accent">CRIAR</button>
+    <button class="mat-elevation-z8" (click)="update()" mat-stroked-button color="accent">ATUALIZAR</button>
     <button class="mat-elevation-z8" (click)="cancel()" mat-stroked-button color="warn">CANCELAR</button>
   </form>

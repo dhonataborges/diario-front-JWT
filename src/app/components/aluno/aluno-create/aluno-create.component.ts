@@ -1,3 +1,5 @@
+import { TurmaService } from 'src/app/services/turma.service';
+import { Turma } from 'src/app/models/turma';
 import { ToastrService } from 'ngx-toastr';
 import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
@@ -23,9 +25,12 @@ export class AlunoCreateComponent implements OnInit {
     responsavel: '',
     telefone: '',
     endereco: '',
-    zona: ''
-
+    zona: '',
+    turma: '',
+    salaTurma: ''
   }
+
+  turmas: Turma[] = [];
 
   nome = new FormControl('', [Validators.minLength(5)])
   nascimento = new FormControl('', [Validators.minLength(5)])
@@ -36,12 +41,15 @@ export class AlunoCreateComponent implements OnInit {
   endereco = new FormControl('', [Validators.minLength(5)])
   zona = new FormControl('', [Validators.minLength(5)])
   cpf = new FormControl('', [Validators.minLength(11)])
+  turma = new FormControl('', [Validators.minLength(4)])
   constructor(
     private toast: ToastrService,
     private router: Router,
-    private service: AlunoService) { }
+    private service: AlunoService,
+    private turmaService: TurmaService) { }
 
   ngOnInit(): void {
+    this.listarTurmas();
   }
 
   cancel(): void {
@@ -60,6 +68,12 @@ export class AlunoCreateComponent implements OnInit {
         this.toast.error("CPF inválido!")
         console.log(err)
       }
+    })
+  }
+
+  listarTurmas(): void {
+    this.turmaService.findAll().subscribe(resposta => {
+      this.turmas = resposta;
     })
   }
 

@@ -14,7 +14,7 @@ export class AlunoReadComponent implements AfterViewInit {
 
   alunos: Aluno[] = [];
 
-  displayedColumns: string[] = ['id', 'nome', 'nascimento', 'sexo', 'cpf', 'rg','responsavel', 'telefone', 'endereco', "zona", 'action'];
+  displayedColumns: string[] = ['id', 'nome', 'nascimento', 'sexo', 'cpf', 'rg','responsavel', 'telefone', 'endereco', "zona", "salaTurma", 'action'];
   dataSource = new MatTableDataSource<Aluno>(this.alunos);
  
   @ViewChild(MatPaginator) paginator!: MatPaginator;

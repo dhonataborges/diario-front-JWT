@@ -5,13 +5,11 @@
   <mat-form-field class="full-width" appearance="outline">
     <mat-label>Nome</mat-label>
     <input [(ngModel)]="aluno.nome" [formControl]="nome" required name="nome" maxlength="100" matInput placeholder="Ex. João Borges">
-    <mat-error *ngIf="nome.invalid">{{ errorValidNome() }}</mat-error>
-  </mat-form-field>
+   </mat-form-field>
 
   <mat-form-field class="full-width" appearance="outline">
   <mat-label>Data de Nascimento</mat-label>
   <input [(ngModel)]="aluno.nascimento" [ngModelOptions]="{standalone: true}"  required name="nascimento" matInput [matDatepicker]="picker">
-  <mat-error *ngIf="nascimento.invalid">{{  errorValidNascimento() }}</mat-error>
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>
@@ -22,50 +20,57 @@
       <mat-option value="masculino">Masculino</mat-option>
       <mat-option value="feminino">Feminino</mat-option>
     </mat-select>
-    <mat-error *ngIf="sexo.invalid">{{  errorValidSexo() }}</mat-error>
   </mat-form-field>
   
 
   <mat-form-field class="full-width" appearance="outline">
       <mat-label>CPF</mat-label>
       <input [(ngModel)]="aluno.cpf" [formControl]="cpf" required name="cpf" maxlength="15" matInput placeholder="000.000.000-00">
-      <mat-error *ngIf="cpf.invalid">{{ errorValidCPF() }}</mat-error>
-    </mat-form-field>
+     </mat-form-field>
     
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>RG</mat-label>
       <input [(ngModel)]="aluno.rg" [formControl]="rg" required name="rg" maxlength="15" matInput placeholder="00.000.000">
-     <mat-error *ngIf="rg.invalid">{{ errorValidRG() }}</mat-error>
-    </mat-form-field>
+     </mat-form-field>
 
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Responsavel</mat-label>
       <input [(ngModel)]="aluno.responsavel" [formControl]="responsavel" required name="responsavel" maxlength="100" matInput placeholder="Ex. João Borges">
-      <mat-error *ngIf="responsavel.invalid">{{ errorValidNome() }}</mat-error>
     </mat-form-field>
 
   <mat-form-field class="full-width"appearance="outline">
       <mat-label>Telefone</mat-label>
       <input [(ngModel)]="aluno.telefone" [formControl]="telefone" required name="telefone" maxlength="18" matInput placeholder="(00) 90000-0000">
-      <mat-error *ngIf="telefone.invalid">{{ errorValidTelefone() }}</mat-error>
     </mat-form-field>
 
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Endereço</mat-label>
       <input [(ngModel)]="aluno.endereco" [formControl]="endereco" required name="endereco" maxlength="15" matInput placeholder="Ex. Rua: São Paulo">
-      <mat-error *ngIf="endereco.invalid">{{ errorValidEndereco() }}</mat-error>
     </mat-form-field>
     
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Selecione o Zona</mat-label>
       <mat-select [(value)]="aluno.zona" [formControl]="zona" required name="zona" required name="zona" >
-        <mat-option value="Urbana">Urbana</mat-option>
-        <mat-option value="Rural">Rural</mat-option>
+        <mat-option value="urbana">Urbana</mat-option>
+        <mat-option value="rural">Rural</mat-option>
       </mat-select>
-      <mat-error *ngIf="zona.invalid">{{  errorValidSexo() }}</mat-error>
     </mat-form-field>
 
-    <button class="mat-elevation-z8" (click)="update()" mat-stroked-button color="accent">ATUALIZAR</button>
+    <div class="turma">
+      <mat-form-field class="full-width" appearance="outline">
+          <mat-label>TURMA SALA: {{ aluno.salaTurma }}</mat-label>
+          <mat-select
+          [(ngModel)]="aluno.turma"
+          name="turma"           
+          [formControl]="turma"
+          required >
+            <mat-option *ngFor="let turma of turmas" value="{{ turma.id }}">{{ turma.sala }}</mat-option>
+          </mat-select>
+        </mat-form-field>   
+    </div>
+    
+
+    <button class="mat-elevation-z8" (click)="update()" [disabled]="!validaCampos()" mat-stroked-button color="accent">ATUALIZAR</button>
   <button class="mat-elevation-z8" (click)="cancel()" mat-stroked-button color="warn">CANCELAR</button>
 </form>
     
