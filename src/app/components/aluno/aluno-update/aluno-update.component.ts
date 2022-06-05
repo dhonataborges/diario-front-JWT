@@ -29,16 +29,16 @@ export class AlunoUpdateComponent implements  OnInit {
     salaTurma: ''
   }
 
-  nome = new FormControl('', [Validators.minLength(5)])
-  nascimento = new FormControl('', [Validators.minLength(5)])
-  sexo = new FormControl('', [Validators.minLength(5)])
-  rg = new FormControl('', [Validators.minLength(10)])
-  responsavel = new FormControl('', [Validators.minLength(5)])
-  telefone = new FormControl('', [Validators.minLength(11)])
-  endereco = new FormControl('', [Validators.minLength(5)])
-  zona = new FormControl('', [Validators.minLength(5)])
-  cpf = new FormControl('', [Validators.minLength(11)])  
-  turma = new FormControl('', [Validators.minLength(4)])
+  nome = new FormControl(null, [Validators.minLength(5)])
+  nascimento = new FormControl(null, [Validators.minLength(5)])
+  sexo = new FormControl(null, [Validators.required])
+  rg = new FormControl(null, [Validators.minLength(10)])
+  responsavel = new FormControl(null, [Validators.minLength(5)])
+  telefone = new FormControl(null, [Validators.minLength(11)])
+  endereco = new FormControl(null, [Validators.required])
+  zona = new FormControl(null, [Validators.required])
+  cpf = new FormControl(null, [Validators.required])  
+  turma = new FormControl(null, [Validators.required])
 
   turmas: Turma[] = [];
 
@@ -72,10 +72,16 @@ export class AlunoUpdateComponent implements  OnInit {
   update(): void {
     this.service.update(this.aluno).subscribe(() => {
       this.toast.success('Aluno atualizado com sucesso!', 'Atualizar Aluno');
-      this.router.navigate(['aluno']);
+      this.router.navigate(['alunos']);
     }, ex => {
-      this.toast.error(ex.error.error);
-    })
+      if(ex.error.errors) {
+        ex.error.errors.forEach(element => {
+          this.toast.error(element.message);
+        });
+      } else {
+        this.toast.error(ex.error.message);
+      }
+    });
   }
   
   cancel(): void {

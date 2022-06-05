@@ -51,8 +51,8 @@
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Selecione o Zona</mat-label>
       <mat-select [(value)]="aluno.zona" disabled>
-        <mat-option value="Urbana">Urbana</mat-option>
-        <mat-option value="Rural">Rural</mat-option>
+        <mat-option value="urbana">Urbana</mat-option>
+        <mat-option value="rural">Rural</mat-option>
       </mat-select>
     </mat-form-field>
 
@@ -67,6 +67,6 @@
         </mat-form-field>   
     </div>
 
-  <button class="mat-elevation-z8" (click)=" delete()" mat-stroked-button color="accent">EXCLUIR</button>
-  <button class="mat-elevation-z8" (click)="cancelar()" mat-stroked-button color="warn">CANCELAR</button>
+  <button class="mat-elevation-z8" (click)=" delete()" mat-raised-button color="primary">EXCLUIR</button>
+  <button class="mat-elevation-z8" (click)="cancelar()" mat-raised-button color="warn">CANCELAR</button>
 </form>

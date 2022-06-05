@@ -17,13 +17,12 @@
 
   <mat-form-field class="full-width" appearance="outline">
     <mat-label>Selecione o Genero</mat-label>
-    <mat-select [(value)]="aluno.sexo" [formControl]="sexo" required name="sexo" required name="sexo" >
+    <mat-select [(ngModel)]="aluno.sexo" [formControl]="sexo" required name="sexo" required name="sexo" >
       <mat-option value="masculino">Masculino</mat-option>
       <mat-option value="feminino">Feminino</mat-option>
     </mat-select>
     <mat-error *ngIf="sexo.invalid">{{  errorValidSexo() }}</mat-error>
-  </mat-form-field>
-  
+  </mat-form-field> 
 
   <mat-form-field class="full-width" appearance="outline">
       <mat-label>CPF</mat-label>
@@ -57,26 +56,24 @@
     
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Selecione o Zona</mat-label>
-      <mat-select [(value)]="aluno.zona" [formControl]="zona" required name="zona" required name="zona" >
-        <mat-option value="Urbana">Urbana</mat-option>
-        <mat-option value="Rural">Rural</mat-option>
+      <mat-select [(ngModel)]="aluno.zona" [formControl]="zona" required name="zona" required name="zona" >
+        <mat-option value="urbana">Urbana</mat-option>
+        <mat-option value="rural">Rural</mat-option>
       </mat-select>
       <mat-error *ngIf="zona.invalid">{{  errorValidSexo() }}</mat-error>
     </mat-form-field>
-    
-    <div class="turma">
-      <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Selecione Sala Turma</mat-label>
+
+    <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Selecione um Sala Turma </mat-label>
           <mat-select
           [(ngModel)]="aluno.turma"
-          name="turma" 
+          name="tecnico" 
           [formControl]="turma" 
           required>
-            <mat-option *ngFor="let turma of turmas" value="{{ turma.id }}">{{ turma.sala }}</mat-option>
+            <mat-option *ngFor="let tur of turmas" value="{{ tur.id }}">{{ tur.sala }}</mat-option>
           </mat-select>
-        </mat-form-field>   
-    </div>
+    </mat-form-field>
     
-  <button class="mat-elevation-z8" (click)="create()" mat-stroked-button color="accent">CRIAR</button>
-  <button class="mat-elevation-z8" (click)="cancel()" mat-stroked-button color="warn">CANCELAR</button>
+  <button class="mat-elevation-z8" (click)="create()" mat-raised-button color="primary">CRIAR</button>
+  <button class="mat-elevation-z8" (click)="cancel()" mat-raised-button color="warn">CANCELAR</button>
 </form>

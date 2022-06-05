@@ -16,12 +16,11 @@
 
   <mat-form-field class="full-width" appearance="outline">
     <mat-label>Selecione o Genero</mat-label>
-    <mat-select [(value)]="aluno.sexo" [formControl]="sexo" required name="sexo" required name="sexo" >
+    <mat-select [(ngModel)]="aluno.sexo" [formControl]="sexo"required name="sexo" >
       <mat-option value="masculino">Masculino</mat-option>
       <mat-option value="feminino">Feminino</mat-option>
     </mat-select>
-  </mat-form-field>
-  
+  </mat-form-field>  
 
   <mat-form-field class="full-width" appearance="outline">
       <mat-label>CPF</mat-label>
@@ -43,22 +42,22 @@
       <input [(ngModel)]="aluno.telefone" [formControl]="telefone" required name="telefone" maxlength="18" matInput placeholder="(00) 90000-0000">
     </mat-form-field>
 
-    <mat-form-field class="full-width" appearance="outline">
+    <mat-form-field class="full-width"appearance="outline">
       <mat-label>Endereço</mat-label>
-      <input [(ngModel)]="aluno.endereco" [formControl]="endereco" required name="endereco" maxlength="15" matInput placeholder="Ex. Rua: São Paulo">
+      <input [(ngModel)]="aluno.endereco" [formControl]="endereco" required name="endereco" maxlength="50" matInput placeholder="Ex. Rua: São Paulo">
     </mat-form-field>
     
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Selecione o Zona</mat-label>
-      <mat-select [(value)]="aluno.zona" [formControl]="zona" required name="zona" required name="zona" >
+      <mat-select [(ngModel)]="aluno.zona" [formControl]="zona" required >
         <mat-option value="urbana">Urbana</mat-option>
         <mat-option value="rural">Rural</mat-option>
       </mat-select>
     </mat-form-field>
-
+    
     <div class="turma">
       <mat-form-field class="full-width" appearance="outline">
-          <mat-label>TURMA SALA: {{ aluno.salaTurma }}</mat-label>
+          <mat-label> SALA TURMA: {{ aluno.salaTurma }}</mat-label>
           <mat-select
           [(ngModel)]="aluno.turma"
           name="turma"           
@@ -70,7 +69,7 @@
     </div>
     
 
-    <button class="mat-elevation-z8" (click)="update()" [disabled]="!validaCampos()" mat-stroked-button color="accent">ATUALIZAR</button>
-  <button class="mat-elevation-z8" (click)="cancel()" mat-stroked-button color="warn">CANCELAR</button>
+    <button class="mat-elevation-z8" (click)="update()" (click)="validaCampos()" mat-raised-button color="primary">ATUALIZAR</button>
+  <button class="mat-elevation-z8" (click)="cancel()" mat-raised-button color="warn">CANCELAR</button>
 </form>
     

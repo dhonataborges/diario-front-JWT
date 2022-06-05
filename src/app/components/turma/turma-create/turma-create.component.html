@@ -12,8 +12,7 @@
       <input [(ngModel)]="turma.sala" required name="sala" maxlength="100" matInput placeholder="Ex. 01,02,03...">
     </mat-form-field>
 
-    <div class="serie">
-      <mat-form-field class="full-width" appearance="outline">
+    <mat-form-field class="full-width" appearance="outline">
           <mat-label>Selecione um Serie</mat-label>
           <mat-select
           [(ngModel)]="turma.serieNivelSubnivel"
@@ -22,9 +21,8 @@
           required>
             <mat-option *ngFor="let serie of series" value="{{ serie.id }}">{{ serie.descricao }}</mat-option>
           </mat-select>
-        </mat-form-field>
-  </div>
+      </mat-form-field>
 
-    <button class="mat-elevation-z8" (click)="create()" mat-stroked-button color="accent">CRIAR</button>
-    <button class="mat-elevation-z8" (click)="cancel()" mat-stroked-button color="warn">CANCELAR</button>
+    <button class="mat-elevation-z8" (click)="create()" mat-raised-button color="primary">CRIAR</button>
+    <button class="mat-elevation-z8" (click)="cancel()" mat-raised-button color="warn">CANCELAR</button>
   </form>
