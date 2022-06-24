@@ -17,13 +17,12 @@
   
   .container {
     width: 95%;
-    overflow: auto;
     margin-right: auto;
     margin-left: auto;
   }
 
   table.mat-table {
-    width: 90%;
+    width: 95%;
   }
   
   
@@ -45,3 +44,13 @@
   #delete {
     color: rgb(223, 80, 80);
   }
+  .menu{
+    flex-wrap: wrap;
+    display: inline-block;
+    margin: 1rem;
+}
+
+.menuzao{   
+    margin-top: 2rem;
+    text-align: center;
+}

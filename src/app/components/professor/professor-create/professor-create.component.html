@@ -4,8 +4,8 @@
 
     
     <section class="section">
-      <mat-checkbox class="margin" color="primary">Admin</mat-checkbox>
-      <mat-checkbox class="margin" color="primary">Professor</mat-checkbox>
+      <mat-checkbox (click)="addPerfil(0)" class="margin" color="primary">Admin</mat-checkbox>
+      <mat-checkbox (click)="addPerfil(1)" [checked]="true" class="margin" color="primary">Professor</mat-checkbox>
     </section>
     
     <mat-form-field class="full-width" appearance="outline">
@@ -24,7 +24,7 @@
   
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Selecione o Genero</mat-label>
-      <mat-select [(value)]="prof.sexo" [formControl]="sexo" required name="sexo">
+      <mat-select [(ngModel)]="prof.sexo" [formControl]="sexo" required name="sexo">
         <mat-option value="masculino">Masculino</mat-option>
         <mat-option value="feminino">Feminino</mat-option>
       </mat-select>
@@ -57,7 +57,7 @@
       
       <mat-form-field class="full-width" appearance="outline">
         <mat-label>Selecione o Zona</mat-label>
-        <mat-select [(value)]="prof.zona" [formControl]="zona" required name="zona" required name="zona" >
+        <mat-select [(ngModel)]="prof.zona" [formControl]="zona" required name="zona" required name="zona" >
           <mat-option value="Urbana">Urbana</mat-option>
           <mat-option value="Rural">Rural</mat-option>
         </mat-select>

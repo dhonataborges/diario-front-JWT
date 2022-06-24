@@ -77,7 +77,7 @@ export class ProfessorCreateComponent implements OnInit {
 
   addPerfil(perfil: any): void {
     if(this.prof.perfis.includes(perfil)) {
-      this.prof.perfis.splice(this.prof.perfis.indexOf(perfil), 2);
+      this.prof.perfis.splice(this.prof.perfis.indexOf(perfil), 1);
     } else {
       this.prof.perfis.push(perfil);
     }
@@ -143,25 +143,4 @@ export class ProfessorCreateComponent implements OnInit {
     }
     return false;
   }
-
-  /*errorValidCargo() {
-    if (this.cargo.invalid) {
-      return 'Cargo é obrigatório!';
-    }
-    return false;
-  }*/
-
- /* errorValidTurma() {
-    if (this.turma.invalid) {
-      return 'Turma é obrigatório!';
-    }
-    return false;
-  }*/
-
- /* errorValidDisciplina() {
-    if (this.disciplina.invalid) {
-      return 'Disciplina é obrigatório!';
-    }
-    return false;
-  }*/
 }

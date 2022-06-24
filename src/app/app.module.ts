@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -23,7 +23,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatMenuModule} from '@angular/material/menu';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
@@ -34,28 +33,25 @@ import { AlunoUpdateComponent } from './components/aluno/aluno-update/aluno-upda
 import { AlunoDeleteComponent } from './components/aluno/aluno-delete/aluno-delete.component';
 import { MatNativeDateModule } from '@angular/material/core';
 
-import { ObservacoesReadComponent } from './components/observacoes/observacoes-read/observacoes-read.component';
-import { ObservacoesCreateComponent } from './components/observacoes/observacoes-create/observacoes-create.component';
-import { ObservacoesUpdateComponent } from './components/observacoes/observacoes-update/observacoes-update.component';
-import { ObservacoesDeleteComponent } from './components/observacoes/observacoes-delete/observacoes-delete.component';
-import { AulasLecionadasReadComponent } from './components/aulasLecionadas/aulas-lecionadas-read/aulas-lecionadas-read.component';
-import { AulasLecionadasCreateComponent } from './components/aulasLecionadas/aulas-lecionadas-create/aulas-lecionadas-create.component';
-import { AulasLecionadasUpdateComponent } from './components/aulasLecionadas/aulas-lecionadas-update/aulas-lecionadas-update.component';
-import { AulasLecionadasDeleteComponent } from './components/aulasLecionadas/aulas-lecionadas-delete/aulas-lecionadas-delete.component';
-import { DisciplinaReadComponent } from './components/disciplina/disciplina-read/disciplina-read.component';
-import { DisciplinaUpdateComponent } from './components/disciplina/disciplina-update/disciplina-update.component';
-import { DisciplinaDeleteComponent } from './components/disciplina/disciplina-delete/disciplina-delete.component';
 import { TurmaReadComponent } from './components/turma/turma-read/turma-read.component';
-import { ObservacoesViewsComponent } from './components/observacoes/observacoes-views/observacoes-views.component';
-import { AulasLecionadasViewsComponent } from './components/aulasLecionadas/aulas-lecionadas-views/aulas-lecionadas-views.component';
 import { TurmaCreateComponent } from './components/turma/turma-create/turma-create.component';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxMaskModule } from 'ngx-mask';
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
-import { DisciplinaCreateComponent } from './components/disciplina/disciplina-create/disciplina-create.component';
 import { TurmaDeleteComponent } from './components/turma/turma-delete/turma-delete.component';
 import { TurmaUpdateComponent } from './components/turma/turma-update/turma-update.component';
+import { PortalProfessorComponent } from './components/portal/portal-professor/portal-professor.component';
+import { TurmaListAlunosComponent } from './components/turma/turma-list-alunos/turma-list-alunos.component';
+import { AulaRegistrarComponent } from './components/portal/aula/aula-registrar/aula-registrar.component';
+import { AulaReadComponent } from './components/portal/aula/aula-read/aula-read.component';
+import { AulaUpdateComponent } from './components/portal/aula/aula-update/aula-update.component';
+import { AtividadeReadComponent } from './components/portal/atividade/atividade-read/atividade-read.component';
+import { AtividadeRegistrarComponent } from './components/portal/atividade/atividade-registrar/atividade-registrar.component';
+import { AtividadeUpdateComponent } from './components/portal/atividade/atividade-update/atividade-update.component';
+import { FrequenciaReadComponent } from './components/portal/frequencia/frequencia-read/frequencia-read.component';
+import { NotaReadComponent } from './components/portal/nota/nota-read/nota-read.component';
+import { AulaViewsComponent } from './components/portal/aula/aula-views/aula-views.component';
 
 
 @NgModule({
@@ -72,25 +68,22 @@ import { TurmaUpdateComponent } from './components/turma/turma-update/turma-upda
     ProfessorDeleteComponent,
     ProfessorReadComponent,
     ProfessorUpdadeComponent,
-    ObservacoesReadComponent,
-    ObservacoesCreateComponent,
-    ObservacoesUpdateComponent,
-    ObservacoesDeleteComponent,
-    AulasLecionadasReadComponent,
-    AulasLecionadasCreateComponent,
-    AulasLecionadasUpdateComponent,
-    AulasLecionadasDeleteComponent,
-    DisciplinaReadComponent,
-    DisciplinaCreateComponent,
-    DisciplinaUpdateComponent,
-    DisciplinaDeleteComponent,
-    TurmaReadComponent,
+      TurmaReadComponent,
     TurmaCreateComponent,
-    ObservacoesViewsComponent,
-    AulasLecionadasViewsComponent,
     LoginComponent,
     TurmaDeleteComponent,
-    TurmaUpdateComponent
+    TurmaUpdateComponent,
+    PortalProfessorComponent,
+    TurmaListAlunosComponent,
+    AulaRegistrarComponent,
+    AulaReadComponent,
+    AulaUpdateComponent,
+    AtividadeReadComponent,
+    AtividadeRegistrarComponent,
+    AtividadeUpdateComponent,
+    FrequenciaReadComponent,
+    NotaReadComponent,
+    AulaViewsComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -115,13 +108,13 @@ import { TurmaUpdateComponent } from './components/turma/turma-update/turma-upda
     MatSnackBarModule,
     MatMenuModule,
     MatNativeDateModule,
-    MatCheckboxModule, 
+    MatCheckboxModule,
     ToastrModule.forRoot({
       timeOut: 4000,
       closeButton: true,
       progressBar: true
     }),
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
   ],
   providers: [{provide: LOCALE_ID, useValue: 'pt-BR'}, AuthInterceptorProvider],
   bootstrap: [AppComponent]

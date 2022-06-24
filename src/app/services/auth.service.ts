@@ -1,3 +1,5 @@
+import { ProfessorService } from './professor.service';
+import { Professor } from 'src/app/models/professor';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
@@ -10,9 +12,8 @@ import { Credenciais } from "../models/credenciais";
 export class AuthService {
   
   jwtService: JwtHelperService = new JwtHelperService;
-
-  constructor(private http: HttpClient) {}
-
+  constructor(private http: HttpClient, professorService: ProfessorService) {}
+  
   authenticate(creds: Credenciais) {
     return this.http.post(`${API_CONFIG.baseUrl}/login`, creds, {
       observe: "response",

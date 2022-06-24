@@ -1,3 +1,5 @@
+import { ProfessorService } from 'src/app/services/professor.service';
+import { Professor } from 'src/app/models/professor';
 
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
@@ -24,13 +26,13 @@ export class LoginComponent implements OnInit {
   constructor(
     private toast: ToastrService,
     private service: AuthService,
+    private serviceProf: ProfessorService,
     private router: Router) { }
 
   ngOnInit(): void {
-    this.router.navigate(["home"]);
   }
 
-  logar() {
+  logar(): void {
     this.service.authenticate(this.creds).subscribe(resposta => {
       this.service.successfullLogin(resposta.headers.get('Authorization').substring(7));
       this.router.navigate(['']);
