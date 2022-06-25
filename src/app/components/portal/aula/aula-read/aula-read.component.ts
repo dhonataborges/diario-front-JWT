@@ -1,9 +1,8 @@
 import { AulaService } from './../../../../services/aula.servic';
 import { Router } from '@angular/router';
-import { AlunoService } from 'src/app/services/aluno.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Aula } from 'src/app/models/aula';
 
 @Component({
@@ -11,7 +10,7 @@ import { Aula } from 'src/app/models/aula';
   templateUrl: './aula-read.component.html',
   styleUrls: ['./aula-read.component.css']
 })
-export class AulaReadComponent implements OnInit {
+export class AulaReadComponent implements AfterViewInit {
 
   aulas: Aula[] = [];
 
@@ -23,10 +22,7 @@ export class AulaReadComponent implements OnInit {
   constructor(
     private service : AulaService,
     private router : Router) {}
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-  
+
   ngAfterViewInit() {
           this.findAll();
   }

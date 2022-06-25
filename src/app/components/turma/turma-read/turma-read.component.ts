@@ -14,14 +14,7 @@ export class TurmaReadComponent implements AfterViewInit {
 
   turma: Turma[] = [];
 
-  displayedColumns: string[] = [
-    'id',
-    'anoLetivo',
-    'sala',
-    'nomeSerieNivelSubnivel',
-    'action'
-  ];
-
+  displayedColumns: string[] = ['id', 'anoLetivo', 'sala', 'nomeSerieNivelSubnivel', 'action' ];
   dataSource = new MatTableDataSource<Turma>(this.turma);
  
   @ViewChild(MatPaginator) paginator!: MatPaginator;

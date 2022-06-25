@@ -1,5 +1,5 @@
 import { Atividade } from './../../../../models/atividade';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { AtividadeService } from 'src/app/services/atividade.service';
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './atividade-read.component.html',
   styleUrls: ['./atividade-read.component.css']
 })
-export class AtividadeReadComponent implements OnInit {
+export class AtividadeReadComponent implements AfterViewInit {
 
   ativiades: Atividade[] = [];
 
@@ -22,9 +22,6 @@ export class AtividadeReadComponent implements OnInit {
   constructor(
     private service : AtividadeService,
     private router : Router) {}
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
   
   ngAfterViewInit() {
           this.findAll();

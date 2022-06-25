@@ -37,6 +37,6 @@ export class AulaViewsComponent implements OnInit {
   }
 
   voltar(): void {
-    this.router.navigate(['aula'])
+    this.router.navigate(['aulas'])
   }
 }
