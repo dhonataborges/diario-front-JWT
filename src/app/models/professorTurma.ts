@@ -1,7 +1,7 @@
 export interface ProfessorTurma {
     id?: any;
     turma: any,
-    anoLetivo: any,
+    descricaoTurma: String,
     professor: any,
     nomeProfessor: String,
     dataAtribuicao: any,

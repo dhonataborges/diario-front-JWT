@@ -1,3 +1,4 @@
+import { AulaDeleteComponent } from './components/portal/aula/aula-delete/aula-delete.component';
 import { FrequenciaReadComponent } from './components/portal/frequencia/frequencia-read/frequencia-read.component';
 import { AtividadeRegistrarComponent } from './components/portal/atividade/atividade-registrar/atividade-registrar.component';
 import { AtividadeReadComponent } from './components/portal/atividade/atividade-read/atividade-read.component';
@@ -56,6 +57,7 @@ const routes: Routes = [
           { path: 'aulas', component: AulaReadComponent },
           { path: 'aulaRegistrar/create', component: AulaRegistrarComponent },
           { path: 'aulas/update/:id', component: AulaUpdateComponent },
+          { path: 'aulas/delete/:id', component: AulaDeleteComponent},
           { path: 'aulas/views/:id', component: AulaViewsComponent},
 
           { path: 'atividades', component: AtividadeReadComponent },

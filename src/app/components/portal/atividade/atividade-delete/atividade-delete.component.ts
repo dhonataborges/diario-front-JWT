@@ -1,17 +1,17 @@
-import { professorTurmaDisciplinaService } from 'src/app/services/professorTurmaDisciplina.service';
-import { AtividadeService } from 'src/app/services/atividade.service';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Component, OnInit } from '@angular/core';
 import { Atividade } from 'src/app/models/atividade';
 import { ProfessorTurmaDisciplina } from 'src/app/models/professorTurmaDisciplina';
+import { AtividadeService } from 'src/app/services/atividade.service';
+import { professorTurmaDisciplinaService } from 'src/app/services/professorTurmaDisciplina.service';
 
 @Component({
-  selector: 'app-atividade-update',
-  templateUrl: './atividade-update.component.html',
-  styleUrls: ['./atividade-update.component.css']
+  selector: 'app-atividade-delete',
+  templateUrl: './atividade-delete.component.html',
+  styleUrls: ['./atividade-delete.component.css']
 })
-export class AtividadeUpdateComponent implements OnInit {
+export class AtividadeDeleteComponent implements OnInit {
 
   atividades: Atividade = {
     id: '',
@@ -51,9 +51,9 @@ export class AtividadeUpdateComponent implements OnInit {
       });
     }
     
-    update(): void {
-      this.service.update(this.atividades).subscribe(() => {
-        this.toast.success('Atividades atualizada com sucesso!', 'Atualizar Atividades');
+    delete(): void {
+      this.service.delete(this.atividades).subscribe(() => {
+        this.toast.success('Atividades Deletado com sucesso!', 'Deletado Atividades');
         this.router.navigate(['atividades']);
       }, ex => {
         this.toast.error(ex.error.error);

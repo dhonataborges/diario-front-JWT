@@ -1,42 +1,41 @@
 
 <form class="form mat-elevation-z8">
-    <h1>Atualizar Aula</h1>
+    <h1>Deletar Aula</h1>
       
     <mat-form-field class="full-width" appearance="outline">
     <mat-label>Data</mat-label>
-    <input [(ngModel)]="aulas.data" [ngModelOptions]="{standalone: true}"  required name="nascimento" matInput [matDatepicker]="picker">
+    <input disabled [(ngModel)]="aulas.data" [ngModelOptions]="{standalone: true}"  required name="nascimento" matInput [matDatepicker]="picker">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
   
     <mat-form-field class="full-width" appearance="outline">
         <mat-label>Hora Inicio</mat-label>
-        <input [(ngModel)]="aulas.horaInicio" required name="horaInicio" type="time" matInput>
+        <input disabled [(ngModel)]="aulas.horaInicio" required name="horaInicio" type="time" matInput>
        </mat-form-field>
  
        <mat-form-field class="full-width" appearance="outline">
         <mat-label>Hora Fim</mat-label>
-        <input [(ngModel)]="aulas.horaFim" required name="horaFim" type="time" matInput>
+        <input disabled [(ngModel)]="aulas.horaFim" required name="horaFim" type="time" matInput>
        </mat-form-field>
 
        <form class="full-width">
         <mat-form-field class="full-width">
             <mat-label>Adicione o conteúdo</mat-label>
-            <textarea [(ngModel)]="aulas.conteudo" name="conteudo" matInput maxlength="255" required></textarea>
+            <textarea disabled [(ngModel)]="aulas.conteudo" name="conteudo" matInput maxlength="255" required></textarea>
         </mat-form-field>
        </form>
   
        <mat-form-field class="full-width" appearance="outline">
             <mat-label>PROFESSOR: {{ aulas.nomeProfessor }}</mat-label>
-            <mat-select
+            <mat-select 
             [(ngModel)]="aulas.professor"
-            name="tecnico" 
-            [formControl]="professor" 
-            required>
+            name="tecnico"  
+            disabled>
               <mat-option *ngFor="let prof of profs" value="{{ prof.id }}">{{ prof.nomeProfessorTurma }}</mat-option>
             </mat-select>
       </mat-form-field>
       
-    <button class="mat-elevation-z8" (click)="update()" mat-raised-button color="primary">ATUALIZAR</button>
+    <button class="mat-elevation-z8" (click)="delete()" mat-raised-button color="primary">DELETAR</button>
     <button class="mat-elevation-z8" (click)="cancel()" mat-raised-button color="warn">CANCELAR</button>
   </form>

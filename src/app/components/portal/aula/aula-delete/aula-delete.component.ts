@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { Aula } from 'src/app/models/aula';
-import { ProfessorTurmaDisciplina } from 'src/app/models/professorTurmaDisciplina';
+import { professorTurmaDisciplinaService } from './../../../../services/professorTurmaDisciplina.service';
 import { AulaService } from 'src/app/services/aula.servic';
-import { professorTurmaDisciplinaService } from 'src/app/services/professorTurmaDisciplina.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { FormControl, Validators } from '@angular/forms';
+import { ProfessorTurmaDisciplina } from './../../../../models/professorTurmaDisciplina';
+import { Component, OnInit } from '@angular/core';
+import { Aula } from 'src/app/models/aula';
 
 @Component({
-  selector: 'app-aula-update',
-  templateUrl: './aula-update.component.html',
-  styleUrls: ['./aula-update.component.css']
+  selector: 'app-aula-delete',
+  templateUrl: './aula-delete.component.html',
+  styleUrls: ['./aula-delete.component.css']
 })
-export class AulaUpdateComponent implements OnInit {
+export class AulaDeleteComponent implements OnInit {
 
   aulas: Aula = {
     id: '',
@@ -57,12 +57,10 @@ export class AulaUpdateComponent implements OnInit {
     });
   }
   
-  update(): void {
-    this.service.update(this.aulas).subscribe(() => {
-      this.toast.success('Aula atualizada com sucesso!', 'Atualizar Aula');
+  delete(): void {
+    this.service.delete(this.aulas.id).subscribe(() => {
+      this.toast.error('Aulas deletato com sucesso!', 'Delete');
       this.router.navigate(['aulas']);
-    }, ex => {
-      this.toast.error(ex.error.error);
     })
   }
 

@@ -51,7 +51,7 @@ export class TurmaDeleteComponent implements OnInit {
 
  delete(): void {
     this.service.delete(this.turma.id).subscribe(() => {
-      this.toast.success('Turma deletato com sucesso!', 'Delete');
+      this.toast.error('Turma deletato com sucesso!', 'Delete');
       this.router.navigate(['turmas']);
     }, err => {
       if (err.error.error.match('possui alunos')) {

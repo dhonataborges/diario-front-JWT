@@ -52,6 +52,8 @@ import { AtividadeUpdateComponent } from './components/portal/atividade/atividad
 import { FrequenciaReadComponent } from './components/portal/frequencia/frequencia-read/frequencia-read.component';
 import { NotaReadComponent } from './components/portal/nota/nota-read/nota-read.component';
 import { AulaViewsComponent } from './components/portal/aula/aula-views/aula-views.component';
+import { AulaDeleteComponent } from './components/portal/aula/aula-delete/aula-delete.component';
+import { AtividadeDeleteComponent } from './components/portal/atividade/atividade-delete/atividade-delete.component';
 
 
 @NgModule({
@@ -84,6 +86,8 @@ import { AulaViewsComponent } from './components/portal/aula/aula-views/aula-vie
     FrequenciaReadComponent,
     NotaReadComponent,
     AulaViewsComponent,
+    AulaDeleteComponent,
+    AtividadeDeleteComponent,
   ],
   imports: [
     AppRoutingModule,

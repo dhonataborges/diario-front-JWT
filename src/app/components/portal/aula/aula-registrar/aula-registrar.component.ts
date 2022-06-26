@@ -1,3 +1,4 @@
+import { ProfessorTurmaDisciplina } from './../../../../models/professorTurmaDisciplina';
 import { Professor } from 'src/app/models/professor';
 import { Aula } from './../../../../models/aula';
 import { Component, OnInit } from '@angular/core';
@@ -6,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { AulaService } from 'src/app/services/aula.servic';
 import { ProfessorService } from 'src/app/services/professor.service';
+import { professorTurmaDisciplinaService } from 'src/app/services/professorTurmaDisciplina.service';
 
 @Component({
   selector: 'app-aula-registrar',
@@ -24,10 +26,9 @@ export class AulaRegistrarComponent implements OnInit {
     nomeProfessor: ''
   }
  
-  profs: Professor[] = [];
+  profs: ProfessorTurmaDisciplina[] = [];
   time = {hour: 13, minute: 30};
   horaInicio = `${new Date().getHours()}:${(new Date().getMinutes()<10?'0':'') + new Date().getMinutes()}`;
-  date = new Date();
   data = new FormControl('', [Validators.minLength(5)])
   horaFim = new FormControl('', [Validators.minLength(5)])
   conteudo = new FormControl('', [Validators.minLength(10)])
@@ -37,7 +38,7 @@ export class AulaRegistrarComponent implements OnInit {
     private toast: ToastrService,
     private router: Router,
     private service: AulaService,
-    private profService: ProfessorService) { }
+    private profService: professorTurmaDisciplinaService) { }
 
   ngOnInit(): void {
     this.listarProf();
