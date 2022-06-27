@@ -17,7 +17,12 @@ export class AulaReadComponent implements AfterViewInit {
   dataSource = new MatTableDataSource<Aula>(this.aulas);
  
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-   
+
+  formatDate(date: Date): String {
+    const d = new Date(date);
+    return d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear();
+  }
+  
   constructor(
     private service : AulaService,
     private router : Router) {}

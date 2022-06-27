@@ -17,25 +17,25 @@ export class AulaDeleteComponent implements OnInit {
   aulas: Aula = {
     id: '',
     data: '',
-    horaInicio:'',
+    horaInicio: '',
     horaFim: '',
     conteudo: '',
     professor: '',
     nomeProfessor: ''
   }
- 
+
   profs: ProfessorTurmaDisciplina[] = [];
-  time = {hour: 13, minute: 30};
-  horaInicio = `${new Date().getHours()}:${(new Date().getMinutes()<10?'0':'') + new Date().getMinutes()}`;
+  time = { hour: 13, minute: 30 };
+  horaInicio = `${new Date().getHours()}:${(new Date().getMinutes() < 10 ? '0' : '') + new Date().getMinutes()}`;
   data = new FormControl('', [Validators.minLength(5)])
   horaFim = new FormControl('', [Validators.minLength(5)])
   conteudo = new FormControl('', [Validators.minLength(10)])
   professor = new FormControl('', [Validators.minLength(5)])
-  
+
   constructor(
     private toast: ToastrService,
     private router: Router,
-    private service: AulaService,    
+    private service: AulaService,
     private route: ActivatedRoute,
     private profService: professorTurmaDisciplinaService) { }
 
@@ -56,12 +56,20 @@ export class AulaDeleteComponent implements OnInit {
       this.toast.error(ex.error.error);
     });
   }
-  
+
   delete(): void {
     this.service.delete(this.aulas.id).subscribe(() => {
       this.toast.error('Aulas deletato com sucesso!', 'Delete');
       this.router.navigate(['aulas']);
-    })
+    }, ex => {
+      if (ex.error.errors) {
+        ex.error.errors.forEach(element => {
+          this.toast.error(element.message);
+        });
+      } else {
+        this.toast.error(ex.error.message);
+      }
+    });
   }
 
   listarProf(): void {

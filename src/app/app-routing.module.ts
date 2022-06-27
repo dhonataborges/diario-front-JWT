@@ -1,3 +1,8 @@
+import { NotaDeleteComponent } from './components/portal/nota/nota-delete/nota-delete.component';
+import { NotaUpdateComponent } from './components/portal/nota/nota-update/nota-update.component';
+import { NotaRegistrarComponent } from './components/portal/nota/nota-registrar/nota-registrar.component';
+import { NotaReadComponent } from './components/portal/nota/nota-read/nota-read.component';
+import { AtividadeDeleteComponent } from './components/portal/atividade/atividade-delete/atividade-delete.component';
 import { AulaDeleteComponent } from './components/portal/aula/aula-delete/aula-delete.component';
 import { FrequenciaReadComponent } from './components/portal/frequencia/frequencia-read/frequencia-read.component';
 import { AtividadeRegistrarComponent } from './components/portal/atividade/atividade-registrar/atividade-registrar.component';
@@ -30,46 +35,52 @@ import { AtividadeUpdateComponent } from './components/portal/atividade/atividad
 import { AulaViewsComponent } from './components/portal/aula/aula-views/aula-views.component';
 
 const routes: Routes = [
-  
-          { path: 'login', component: LoginComponent },
-          
-          { path: '', component: NavComponent, canActivate: [AuthGuard], children: [
-          { path: 'home', component: HomeComponent},
 
-          { path: 'alunos', component: AlunoReadComponent},
-          { path: 'alunos/create', component: AlunoCreateComponent},
-          { path: 'alunos/update/:id', component: AlunoUpdateComponent},
-          { path: 'alunos/delete/:id', component: AlunoDeleteComponent},
+  { path: 'login', component: LoginComponent },
 
-          { path: 'professores', component: ProfessorReadComponent},
-          { path: 'professores/create', component: ProfessorCreateComponent},
-          { path: 'professores/update/:id', component: ProfessorUpdadeComponent},
-          { path: 'professores/delete/:id', component: ProfessorDeleteComponent},
+  {
+    path: '', component: NavComponent, canActivate: [AuthGuard], children: [
+      { path: 'home', component: HomeComponent },
 
-          { path: 'turmas', component: TurmaReadComponent},
-          { path: 'turmas/create', component: TurmaCreateComponent}, 
-          { path: 'turmas/update/:id', component: TurmaUpdateComponent},
-          { path: 'turmas/delete/:id', component: TurmaDeleteComponent},
+      { path: 'alunos', component: AlunoReadComponent },
+      { path: 'alunos/create', component: AlunoCreateComponent },
+      { path: 'alunos/update/:id', component: AlunoUpdateComponent },
+      { path: 'alunos/delete/:id', component: AlunoDeleteComponent },
 
-          { path: 'portalProfessor', component: PortalProfessorComponent},
-          { path: 'turmaAlunos', component: TurmaListAlunosComponent },
+      { path: 'professores', component: ProfessorReadComponent },
+      { path: 'professores/create', component: ProfessorCreateComponent },
+      { path: 'professores/update/:id', component: ProfessorUpdadeComponent },
+      { path: 'professores/delete/:id', component: ProfessorDeleteComponent },
 
-          { path: 'aulas', component: AulaReadComponent },
-          { path: 'aulaRegistrar/create', component: AulaRegistrarComponent },
-          { path: 'aulas/update/:id', component: AulaUpdateComponent },
-          { path: 'aulas/delete/:id', component: AulaDeleteComponent},
-          { path: 'aulas/views/:id', component: AulaViewsComponent},
+      { path: 'turmas', component: TurmaReadComponent },
+      { path: 'turmas/create', component: TurmaCreateComponent },
+      { path: 'turmas/update/:id', component: TurmaUpdateComponent },
+      { path: 'turmas/delete/:id', component: TurmaDeleteComponent },
 
-          { path: 'atividades', component: AtividadeReadComponent },
-          { path: 'atividadeRegistrar/create', component: AtividadeRegistrarComponent },
-          { path: 'atividades/update/:id', component: AtividadeUpdateComponent },
+      { path: 'portalProfessor', component: PortalProfessorComponent },
+      { path: 'turmaAlunos', component: TurmaListAlunosComponent },
 
-          { path: 'frequencia', component: FrequenciaReadComponent },
+      { path: 'aulas', component: AulaReadComponent },
+      { path: 'aulaRegistrar/create', component: AulaRegistrarComponent },
+      { path: 'aulas/update/:id', component: AulaUpdateComponent },
+      { path: 'aulas/delete/:id', component: AulaDeleteComponent },
+      { path: 'aulas/views/:id', component: AulaViewsComponent },
 
-          { path: 'nota', component: AtividadeReadComponent },
-        ]
-      }
-    ];
+      { path: 'atividades', component: AtividadeReadComponent },
+      { path: 'atividadeRegistrar/create', component: AtividadeRegistrarComponent },
+      { path: 'atividades/update/:id', component: AtividadeUpdateComponent },
+      { path: 'atividades/delete/:id', component: AtividadeDeleteComponent },
+
+      { path: 'frequencia', component: FrequenciaReadComponent },
+
+      { path: 'notas', component: NotaReadComponent },
+      { path: 'notaRegistrar', component: NotaRegistrarComponent},
+      { path: 'notas/update/:id', component: NotaUpdateComponent },
+      { path: 'notas/delete/:id', component: NotaDeleteComponent },
+
+    ]
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -54,6 +54,9 @@ import { NotaReadComponent } from './components/portal/nota/nota-read/nota-read.
 import { AulaViewsComponent } from './components/portal/aula/aula-views/aula-views.component';
 import { AulaDeleteComponent } from './components/portal/aula/aula-delete/aula-delete.component';
 import { AtividadeDeleteComponent } from './components/portal/atividade/atividade-delete/atividade-delete.component';
+import { NotaRegistrarComponent } from './components/portal/nota/nota-registrar/nota-registrar.component';
+import { NotaUpdateComponent } from './components/portal/nota/nota-update/nota-update.component';
+import { NotaDeleteComponent } from './components/portal/nota/nota-delete/nota-delete.component';
 
 
 @NgModule({
@@ -88,6 +91,9 @@ import { AtividadeDeleteComponent } from './components/portal/atividade/atividad
     AulaViewsComponent,
     AulaDeleteComponent,
     AtividadeDeleteComponent,
+    NotaRegistrarComponent,
+    NotaUpdateComponent,
+    NotaDeleteComponent,
   ],
   imports: [
     AppRoutingModule,

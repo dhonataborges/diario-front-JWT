@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Atividade } from './../../../../models/atividade';
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
@@ -12,6 +13,10 @@ import { Router } from '@angular/router';
 })
 export class AtividadeReadComponent implements AfterViewInit {
 
+  formatDate(date: Date): String {
+    const d = new Date(date);
+    return d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear();
+  }
   ativiades: Atividade[] = [];
 
   displayedColumns: string[] = ['id', 'dataCriacao', 'dataEntrega', 'notaMaxima', 'descricao', 'tipo', 'nomeProfessor', 'action'];
