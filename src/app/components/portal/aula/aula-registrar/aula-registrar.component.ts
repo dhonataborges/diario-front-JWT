@@ -50,16 +50,8 @@ export class AulaRegistrarComponent implements OnInit {
 
   create(): void {
     this.service.create(this.aulas).subscribe(() => {
-      this.toast.success('Aula registrada com sucesso!', 'Registro');
+      this.toast.success('Aula registrada com sucesso!', 'Registrado');
       this.router.navigate(['aulas']);
-    }, err => {
-      console.log(err)
-      if (err.error.error.match('já cadastrado')) {
-        this.toast.error(err.error.error)
-      } else if (err.error.errors[0].message === "número do registro de contribuinte individual brasileiro (CPF) inválido") {
-        this.toast.error("CPF inválido!")
-        console.log(err)
-      }
     })
   }
 

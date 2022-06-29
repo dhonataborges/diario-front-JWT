@@ -14,7 +14,7 @@ export class NotaReadComponent implements AfterViewInit {
 
   ativiades: AlunoAtividade[] = [];
 
-  displayedColumns: string[] = ['id', 'nota', 'nomeAluno', 'nomeAtivadeTipo', 'action'];
+  displayedColumns: string[] = ['id', 'nota', 'nomeAluno', 'nomeAtividadeTipo', 'action'];
   dataSource = new MatTableDataSource<AlunoAtividade>(this.ativiades);
  
   @ViewChild(MatPaginator) paginator!: MatPaginator;

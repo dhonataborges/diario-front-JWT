@@ -44,7 +44,7 @@ export class AtividadeRegistrarComponent implements OnInit {
 
   create(): void {
     this.service.create(this.atividades).subscribe(() => {
-      this.toast.success('Atividade registrada com sucesso!', 'Registrada');
+      this.toast.success('Atividade registrada com sucesso!', 'Registrado');
       this.router.navigate(['atividades']);
    })
   }

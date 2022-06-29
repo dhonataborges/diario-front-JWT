@@ -74,7 +74,7 @@ const routes: Routes = [
       { path: 'frequencia', component: FrequenciaReadComponent },
 
       { path: 'notas', component: NotaReadComponent },
-      { path: 'notaRegistrar', component: NotaRegistrarComponent},
+      { path: 'notaRegistrar/create', component: NotaRegistrarComponent},
       { path: 'notas/update/:id', component: NotaUpdateComponent },
       { path: 'notas/delete/:id', component: NotaDeleteComponent },
 

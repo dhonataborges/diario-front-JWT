@@ -4,5 +4,5 @@ export interface AlunoAtividade {
     aluno: any;
     nomeAluno: String;
     atividade: any;
-    nomeAtividade: String;
+    nomeAtividadeTipo: String;
 }
