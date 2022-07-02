@@ -13,7 +13,7 @@ import { Aula } from 'src/app/models/aula';
 export class AulaReadComponent implements AfterViewInit {
 
   aulas: Aula[] = [];
-  displayedColumns: string[] = ['id', 'data', 'horaInicio', 'horaFim', 'nomeProfessor', 'conteudo', 'action'];
+  displayedColumns: string[] = ['id', 'data', 'horaInicio', 'horaFim', 'nomeDisciplina', 'conteudo', 'action'];
   dataSource = new MatTableDataSource<Aula>(this.aulas);
  
   @ViewChild(MatPaginator) paginator!: MatPaginator;

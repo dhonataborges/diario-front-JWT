@@ -22,17 +22,18 @@ export class AulaRegistrarComponent implements OnInit {
     horaInicio:'',
     horaFim: '',
     conteudo: '',
-    professor: '',
-    nomeProfessor: ''
+    disciplina: '',
+    nomeDisciplina: ''
   }
  
-  profs: ProfessorTurmaDisciplina[] = [];
+  discs: ProfessorTurmaDisciplina[] = [];
+
   time = {hour: 13, minute: 30};
   horaInicio = `${new Date().getHours()}:${(new Date().getMinutes()<10?'0':'') + new Date().getMinutes()}`;
   data = new FormControl('', [Validators.minLength(5)])
   horaFim = new FormControl('', [Validators.minLength(5)])
   conteudo = new FormControl('', [Validators.minLength(10)])
-  professor = new FormControl('', [Validators.minLength(5)])
+  disciplina = new FormControl('', [Validators.minLength(5)])
   
   constructor(
     private toast: ToastrService,
@@ -57,7 +58,7 @@ export class AulaRegistrarComponent implements OnInit {
 
   listarProf(): void {
     this.profService.findAll().subscribe(resposta => {
-      this.profs = resposta;
+      this.discs = resposta;
     })
   }
 

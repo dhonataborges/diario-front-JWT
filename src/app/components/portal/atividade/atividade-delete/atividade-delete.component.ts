@@ -20,11 +20,11 @@ export class AtividadeDeleteComponent implements OnInit {
     notaMaxima: '',
     descricao: '',
     tipo: '',
-    professor: '',
-    nomeProfessor: ''
+    disciplina: '',
+    nomeDisciplina: ''
   }
 
-  profs: ProfessorTurmaDisciplina[] = [];
+  discs: ProfessorTurmaDisciplina[] = [];
 
   constructor(
     private toast: ToastrService,
@@ -69,7 +69,7 @@ export class AtividadeDeleteComponent implements OnInit {
 
   listarProf(): void {
     this.profService.findAll().subscribe(resposta => {
-      this.profs = resposta;
+      this.discs = resposta;
     })
   }
 

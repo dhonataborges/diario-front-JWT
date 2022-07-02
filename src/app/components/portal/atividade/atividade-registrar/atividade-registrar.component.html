@@ -33,9 +33,9 @@
     </mat-form-field>
 
     <mat-form-field class="full-width" appearance="outline">
-        <mat-label>Selecione o Professor</mat-label>
-        <mat-select [(ngModel)]="atividades.professor" name="tecnico" required>
-            <mat-option *ngFor="let prof of profs" value="{{ prof.id }}">{{ prof.nomeProfessorTurma }}</mat-option>
+        <mat-label>Selecione o Disciplina</mat-label>
+        <mat-select [(ngModel)]="atividades.disciplina" name="tecnico" required>
+            <mat-option *ngFor="let disc of discs" value="{{ disc.id }}">{{ disc.nomeDisciplina }}</mat-option>
         </mat-select>
     </mat-form-field>
 

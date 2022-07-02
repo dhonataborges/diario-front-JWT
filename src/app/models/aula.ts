@@ -4,6 +4,6 @@ export interface Aula {
     horaInicio: any;
     horaFim: any;
     conteudo: String;
-    professor: any;
-    nomeProfessor: String;
+    disciplina: any;
+    nomeDisciplina: String;
 }

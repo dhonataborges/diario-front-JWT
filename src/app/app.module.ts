@@ -23,6 +23,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatMenuModule} from '@angular/material/menu';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
@@ -73,7 +74,7 @@ import { NotaDeleteComponent } from './components/portal/nota/nota-delete/nota-d
     ProfessorDeleteComponent,
     ProfessorReadComponent,
     ProfessorUpdadeComponent,
-      TurmaReadComponent,
+    TurmaReadComponent,
     TurmaCreateComponent,
     LoginComponent,
     TurmaDeleteComponent,
@@ -119,6 +120,7 @@ import { NotaDeleteComponent } from './components/portal/nota/nota-delete/nota-d
     MatMenuModule,
     MatNativeDateModule,
     MatCheckboxModule,
+    MatSlideToggleModule,
     ToastrModule.forRoot({
       timeOut: 4000,
       closeButton: true,

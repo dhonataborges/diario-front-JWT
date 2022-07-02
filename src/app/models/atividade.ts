@@ -5,6 +5,6 @@ export interface Atividade {
     notaMaxima: any;
     descricao: String;
     tipo: String;
-    professor: any;
-    nomeProfessor: String;
+    disciplina: any;
+    nomeDisciplina: String;
 }

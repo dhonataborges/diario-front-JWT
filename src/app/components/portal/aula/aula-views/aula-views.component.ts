@@ -15,8 +15,8 @@ export class AulaViewsComponent implements OnInit {
     horaInicio: '',
     horaFim: '',
     conteudo: '',
-    professor: '',
-    nomeProfessor: ''
+    disciplina: '',
+    nomeDisciplina: ''
   }
   
   constructor(
