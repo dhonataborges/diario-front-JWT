@@ -24,7 +24,7 @@ export class ProfessorTurmaService {
 
     /** MÉTODO DE BUSCAR UM Turma PELO ID. ELE PREENCHE OS CAMPOS DO FORMULARIO PARAARIO NÃO 
    * PRECISAR DIGITAR NA HORA DE ATUALIZAR OS DADOS DO CLIENTE*/
-  findByEmail(id: any): Observable<ProfessorTurma> {
+  findById(id: any): Observable<ProfessorTurma> {
     const url = this.baseUrl + "/professorTurmas/" + id;
     return this.http.get<ProfessorTurma>(url);
   }

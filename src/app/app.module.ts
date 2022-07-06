@@ -58,6 +58,14 @@ import { AtividadeDeleteComponent } from './components/portal/atividade/atividad
 import { NotaRegistrarComponent } from './components/portal/nota/nota-registrar/nota-registrar.component';
 import { NotaUpdateComponent } from './components/portal/nota/nota-update/nota-update.component';
 import { NotaDeleteComponent } from './components/portal/nota/nota-delete/nota-delete.component';
+import { EmturmaReadComponent } from './components/emturma/emturma-read/emturma-read.component';
+import { EmturmaCreateComponent } from './components/emturma/emturma-create/emturma-create.component';
+import { EmturmaUpdateComponent } from './components/emturma/emturma-update/emturma-update.component';
+import { EmturmaDeleteComponent } from './components/emturma/emturma-delete/emturma-delete.component';
+import { DisciplinaProfessorReadComponent } from './components/DisciplinaProfessor/disciplina-professor-read/disciplina-professor-read.component';
+import { DisciplinaProfessorCreateComponent } from './components/DisciplinaProfessor/disciplina-professor-create/disciplina-professor-create.component';
+import { DisciplinaProfessorUpdateComponent } from './components/DisciplinaProfessor/disciplina-professor-update/disciplina-professor-update.component';
+import { DisciplinaProfessorDeleteComponent } from './components/DisciplinaProfessor/disciplina-professor-delete/disciplina-professor-delete.component';
 
 
 @NgModule({
@@ -95,6 +103,14 @@ import { NotaDeleteComponent } from './components/portal/nota/nota-delete/nota-d
     NotaRegistrarComponent,
     NotaUpdateComponent,
     NotaDeleteComponent,
+    EmturmaReadComponent,
+    EmturmaCreateComponent,
+    EmturmaUpdateComponent,
+    EmturmaDeleteComponent,
+    DisciplinaProfessorReadComponent,
+    DisciplinaProfessorCreateComponent,
+    DisciplinaProfessorUpdateComponent,
+    DisciplinaProfessorDeleteComponent,
   ],
   imports: [
     AppRoutingModule,

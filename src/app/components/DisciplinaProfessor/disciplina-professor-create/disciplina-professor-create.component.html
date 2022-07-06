@@ -1,0 +1,38 @@
+<form class="form mat-elevation-z8">
+    <h1> Adicionar Disciplina </h1>
+
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Selecione o Professor</mat-label>
+        <mat-select [(ngModel)]="disciplinaProfessor.professor" name="nomeProfessorTurma" required>
+            <mat-option *ngFor="let professor of professores" value="{{ professor.id }}">{{ professor.nomeProfessor }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Selecione um Disciplina</mat-label>
+        <mat-select [(ngModel)]="disciplinaProfessor.disciplina" name="nomeProfessor" required>
+            <mat-option *ngFor="let disciplina of disciplinas" value="{{ disciplina.id }}">{{ disciplina.nome }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Selecione o Bimestre</mat-label>
+        <mat-select [(ngModel)]="disciplinaProfessor.bimestre" required name="bimestre">
+          <mat-option value= 1>1°</mat-option>
+          <mat-option value= 2>2°</mat-option>
+          <mat-option value= 3>3°</mat-option>
+          <mat-option value= 4>4°</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Ano Letivo</mat-label>
+        <input [(ngModel)]="disciplinaProfessor.anoLetivo" required name="anoLetivo" maxlength="100" matInput
+          placeholder="Ex. 2022, 2023, 2024...">
+      </mat-form-field>
+
+    <button class="mat-elevation-z8" (click)="create()" mat-raised-button color="primary">ADICIONAR</button>
+    <button class="mat-elevation-z8" (click)="cancel()" mat-raised-button color="warn">CANCELAR</button>
+</form>

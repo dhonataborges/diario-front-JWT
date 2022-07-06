@@ -1,6 +1,8 @@
 
 export interface Disciplina {
     id?: any;
-    nomeDisciplina: String;
-    professores: any;
+    nome: String;
+    ementa: String;
+    serieNivelSubnivel: any;
+	nomeSerieNivelSubnivel: String;
 }

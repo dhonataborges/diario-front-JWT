@@ -1,0 +1,38 @@
+<form class="form mat-elevation-z8">
+    <h1>Deletar Enturmação</h1>
+
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Ano de Atribuição</mat-label>
+        <input [(ngModel)]="enturma.dataAtribuicao" [ngModelOptions]="{standalone: true}" required name="dataAtribuicao"
+            matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label>STATUS: {{enturma.status}}</mat-label>
+        <mat-select [(ngModel)]="enturma.status" required name="status">
+            <mat-option value=0>Ativo</mat-option>
+            <mat-option value=1>Inativo</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label> TURMA: {{enturma.descricaoTurma}} </mat-label>
+        <mat-select [(ngModel)]="enturma.descricaoTurma" name="descricaoTurma" required>
+            <mat-option *ngFor="let turma of turmas" value="{{ turma.id }}">{{ turma.nomeSerieNivelSubnivel }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label> PROFESSOR: {{enturma.nomeProfessor}} </mat-label>
+        <mat-select [(ngModel)]="enturma.nomeProfessor" name="nomeProfessor" required>
+            <mat-option *ngFor="let professor of professores" value="{{ professor.id }}">{{ professor.nome }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <button class="mat-elevation-z8" (click)="update()" mat-raised-button color="primary">CRIAR</button>
+    <button class="mat-elevation-z8" (click)="cancel()" mat-raised-button color="warn">CANCELAR</button>
+</form>

@@ -1,3 +1,10 @@
+import { DisciplinaProfessorDeleteComponent } from './components/DisciplinaProfessor/disciplina-professor-delete/disciplina-professor-delete.component';
+import { DisciplinaProfessorUpdateComponent } from './components/DisciplinaProfessor/disciplina-professor-update/disciplina-professor-update.component';
+import { DisciplinaProfessorCreateComponent } from './components/DisciplinaProfessor/disciplina-professor-create/disciplina-professor-create.component';
+import { DisciplinaProfessorReadComponent } from './components/DisciplinaProfessor/disciplina-professor-read/disciplina-professor-read.component';
+import { EmturmaReadComponent } from './components/emturma/emturma-read/emturma-read.component';
+import { EmturmaUpdateComponent } from './components/emturma/emturma-update/emturma-update.component';
+import { EmturmaCreateComponent } from './components/emturma/emturma-create/emturma-create.component';
 import { NotaDeleteComponent } from './components/portal/nota/nota-delete/nota-delete.component';
 import { NotaUpdateComponent } from './components/portal/nota/nota-update/nota-update.component';
 import { NotaRegistrarComponent } from './components/portal/nota/nota-registrar/nota-registrar.component';
@@ -33,6 +40,7 @@ import { ProfessorDeleteComponent } from './components/professor/professor-delet
 import { AulaUpdateComponent } from './components/portal/aula/aula-update/aula-update.component';
 import { AtividadeUpdateComponent } from './components/portal/atividade/atividade-update/atividade-update.component';
 import { AulaViewsComponent } from './components/portal/aula/aula-views/aula-views.component';
+import { EmturmaDeleteComponent } from './components/emturma/emturma-delete/emturma-delete.component';
 
 const routes: Routes = [
 
@@ -77,6 +85,16 @@ const routes: Routes = [
       { path: 'notaRegistrar/create', component: NotaRegistrarComponent},
       { path: 'notas/update/:id', component: NotaUpdateComponent },
       { path: 'notas/delete/:id', component: NotaDeleteComponent },
+
+      { path: 'entrumacao', component: EmturmaReadComponent },
+      { path: 'entrumacao/create', component: EmturmaCreateComponent},
+      { path: 'entrumacao/update/:id', component: EmturmaUpdateComponent },
+      { path: 'entrumacao/delete/:id', component: EmturmaDeleteComponent },
+
+      { path: 'disciplinaProfessor', component: DisciplinaProfessorReadComponent },
+      { path: 'disciplinaProfessor/create', component: DisciplinaProfessorCreateComponent},
+      { path: 'disciplinaProfessor/update/:id', component: DisciplinaProfessorUpdateComponent },
+      { path: 'disciplinaProfessor/delete/:id', component: DisciplinaProfessorDeleteComponent },
 
     ]
   }

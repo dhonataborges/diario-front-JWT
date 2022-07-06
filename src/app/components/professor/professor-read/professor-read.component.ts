@@ -16,7 +16,7 @@ export class ProfessorReadComponent implements AfterViewInit {
 
 profissionais: Professor[] = [];
 
-  displayedColumns: string[] = ['id', 'nome', 'nascimento', 'sexo', 'cpf', 'rg', 'telefone','endereco', 'zona', 'action'];
+  displayedColumns: string[] = ['id', 'nome', 'nascimento', 'sexo', 'cpf', 'rg', 'email', 'telefone','endereco', 'zona', 'action'];
   dataSource = new MatTableDataSource<Professor>(this.profissionais);
  
   @ViewChild(MatPaginator) paginator!: MatPaginator;
