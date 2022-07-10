@@ -66,6 +66,10 @@ import { DisciplinaProfessorReadComponent } from './components/DisciplinaProfess
 import { DisciplinaProfessorCreateComponent } from './components/DisciplinaProfessor/disciplina-professor-create/disciplina-professor-create.component';
 import { DisciplinaProfessorUpdateComponent } from './components/DisciplinaProfessor/disciplina-professor-update/disciplina-professor-update.component';
 import { DisciplinaProfessorDeleteComponent } from './components/DisciplinaProfessor/disciplina-professor-delete/disciplina-professor-delete.component';
+import { DisciplinaReadComponent } from './components/disciplina/disciplina-read/disciplina-read.component';
+import { DisciplinaCreateComponent } from './components/disciplina/disciplina-create/disciplina-create.component';
+import { DisciplinaUpdateComponent } from './components/disciplina/disciplina-update/disciplina-update.component';
+import { DisciplinaDeleteComponent } from './components/disciplina/disciplina-delete/disciplina-delete.component';
 
 
 @NgModule({
@@ -111,6 +115,10 @@ import { DisciplinaProfessorDeleteComponent } from './components/DisciplinaProfe
     DisciplinaProfessorCreateComponent,
     DisciplinaProfessorUpdateComponent,
     DisciplinaProfessorDeleteComponent,
+    DisciplinaReadComponent,
+    DisciplinaCreateComponent,
+    DisciplinaUpdateComponent,
+    DisciplinaDeleteComponent,
   ],
   imports: [
     AppRoutingModule,

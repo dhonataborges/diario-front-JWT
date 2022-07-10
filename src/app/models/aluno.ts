@@ -10,5 +10,5 @@ export interface Aluno {
     endereco: String;
 	zona: String
     turma: any;
-    salaTurma: any;
+    salaTurma: String;
 }

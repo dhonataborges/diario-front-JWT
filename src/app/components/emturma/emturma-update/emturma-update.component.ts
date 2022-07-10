@@ -39,9 +39,9 @@ export class EmturmaUpdateComponent implements OnInit {
 
   ngOnInit(): void {
     this.enturma.id = this.route.snapshot.paramMap.get('id');
+    this.findById();
     this.listarProf();
     this.listarTurma();
-    this.findById();
   }
 
   cancel(): void {

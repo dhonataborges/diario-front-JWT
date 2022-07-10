@@ -1,3 +1,6 @@
+import { DisciplinaDeleteComponent } from './components/disciplina/disciplina-delete/disciplina-delete.component';
+import { DisciplinaUpdateComponent } from './components/disciplina/disciplina-update/disciplina-update.component';
+import { DisciplinaCreateComponent } from './components/disciplina/disciplina-create/disciplina-create.component';
 import { DisciplinaProfessorDeleteComponent } from './components/DisciplinaProfessor/disciplina-professor-delete/disciplina-professor-delete.component';
 import { DisciplinaProfessorUpdateComponent } from './components/DisciplinaProfessor/disciplina-professor-update/disciplina-professor-update.component';
 import { DisciplinaProfessorCreateComponent } from './components/DisciplinaProfessor/disciplina-professor-create/disciplina-professor-create.component';
@@ -41,6 +44,7 @@ import { AulaUpdateComponent } from './components/portal/aula/aula-update/aula-u
 import { AtividadeUpdateComponent } from './components/portal/atividade/atividade-update/atividade-update.component';
 import { AulaViewsComponent } from './components/portal/aula/aula-views/aula-views.component';
 import { EmturmaDeleteComponent } from './components/emturma/emturma-delete/emturma-delete.component';
+import { DisciplinaReadComponent } from './components/disciplina/disciplina-read/disciplina-read.component';
 
 const routes: Routes = [
 
@@ -95,6 +99,11 @@ const routes: Routes = [
       { path: 'disciplinaProfessor/create', component: DisciplinaProfessorCreateComponent},
       { path: 'disciplinaProfessor/update/:id', component: DisciplinaProfessorUpdateComponent },
       { path: 'disciplinaProfessor/delete/:id', component: DisciplinaProfessorDeleteComponent },
+
+      { path: 'disciplinas', component: DisciplinaReadComponent },
+      { path: 'disciplinas/create', component: DisciplinaCreateComponent},
+      { path: 'disciplinas/update/:id', component: DisciplinaUpdateComponent },
+      { path: 'disciplinas/delete/:id', component: DisciplinaDeleteComponent },
 
     ]
   }

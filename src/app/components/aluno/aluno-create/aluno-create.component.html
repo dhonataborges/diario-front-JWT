@@ -7,7 +7,7 @@
     <mat-error *ngIf="nome.invalid">{{ errorValidNome() }}</mat-error>
   </mat-form-field>
 
-  <mat-form-field class="full-width" appearance="outline">
+  <!--<mat-form-field class="full-width" appearance="outline">
   <mat-label>Data de Nascimento</mat-label>
   <input [(ngModel)]="aluno.nascimento" [ngModelOptions]="{standalone: true}"  required name="nascimento" matInput [matDatepicker]="picker">
   <mat-error *ngIf="nascimento.invalid">{{  errorValidNascimento() }}</mat-error>
@@ -61,7 +61,7 @@
         <mat-option value="rural">Rural</mat-option>
       </mat-select>
       <mat-error *ngIf="zona.invalid">{{  errorValidSexo() }}</mat-error>
-    </mat-form-field>
+    </mat-form-field>-->
 
     <mat-form-field class="full-width" appearance="outline">
           <mat-label>Selecione um Sala Turma </mat-label>
@@ -70,7 +70,7 @@
           name="tecnico" 
           [formControl]="turma" 
           required>
-            <mat-option *ngFor="let tur of turmas" value="{{ tur.id }}">{{ tur.sala }}</mat-option>
+            <mat-option *ngFor="let tur of turmas" value="{{ tur.id }}">{{ tur.nomeSerieNivelSubnivel }}</mat-option>
           </mat-select>
     </mat-form-field>
     

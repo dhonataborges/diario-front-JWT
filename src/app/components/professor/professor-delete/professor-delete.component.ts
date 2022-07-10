@@ -48,7 +48,7 @@ export class ProfessorDeleteComponent implements OnInit {
   
   delete(): void {
     this.service.delete(this.prof.id).subscribe(() => {
-      this.toast.success('Cliente deletato com sucesso!', 'Delete');
+      this.toast.error('Cliente deletato com sucesso!', 'Delete');
       this.router.navigate(['professores']);
     }, ex => {
       if(ex.error.errors) {

@@ -1,1 +1,38 @@
-<p>disciplina-professor-delete works!</p>
+<form class="form mat-elevation-z8">
+    <h1> Atualizar Disciplina </h1>
+
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label>PROFESSOR: {{disciplinaProfessor.nomeProfessorTurma}}</mat-label>
+        <mat-select [(ngModel)]="disciplinaProfessor.professor" name="nomeProfessorTurma" disabled>
+            <mat-option *ngFor="let professor of professores" value="{{ professor.id }}">{{ professor.nomeProfessor }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label>DISCIPLINA: {{disciplinaProfessor.nomeDisciplina}}</mat-label>
+        <mat-select [(ngModel)]="disciplinaProfessor.disciplina" name="nomeProfessor" disabled>
+            <mat-option *ngFor="let disciplina of disciplinas" value="{{ disciplina.id }}">{{ disciplina.nome }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label>BIMESTRE: {{disciplinaProfessor.bimestre}}</mat-label>
+        <mat-select [(ngModel)]="disciplinaProfessor.bimestre" disabled name="bimestre">
+          <mat-option value= 1>1°</mat-option>
+          <mat-option value= 2>2°</mat-option>
+          <mat-option value= 3>3°</mat-option>
+          <mat-option value= 4>4°</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Ano Letivo</mat-label>
+        <input [(ngModel)]="disciplinaProfessor.anoLetivo" disabled name="anoLetivo" maxlength="100" matInput
+          placeholder="Ex. 2022, 2023, 2024...">
+      </mat-form-field>
+
+    <button class="mat-elevation-z8" (click)="delete()" mat-raised-button color="primary">DELETE</button>
+    <button class="mat-elevation-z8" (click)="cancel()" mat-raised-button color="warn">CANCELAR</button>
+</form>

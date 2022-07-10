@@ -1,0 +1,23 @@
+<form class="form mat-elevation-z8">
+    <h1>Deletar uma Disciplina</h1>
+
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Disciplina</mat-label>
+        <input [(ngModel)]="disciplina.nome" disabled name="nome" matInput >
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Ementa</mat-label>
+        <input [(ngModel)]="disciplina.ementa" disabled name="ementa" matInput>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>SERIE: {{disciplina.nomeSerieNivelSubnivel}} </mat-label>
+        <mat-select [(ngModel)]="disciplina.serieNivelSubnivel" name="serieNivelSubnivel" disabled>
+          <mat-option *ngFor="let serie of series" value="{{ serie.id }}">{{ serie.descricao }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    
+    <button class="mat-elevation-z8" (click)="delete()" mat-raised-button color="primary">DELETAR</button>
+    <button class="mat-elevation-z8" (click)="cancel()" mat-raised-button color="warn">CANCELAR</button>
+  </form>
