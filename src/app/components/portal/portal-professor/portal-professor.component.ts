@@ -21,13 +21,17 @@ export class PortalProfessorComponent implements OnInit {
   turma: Turma[] = []; 
 
   disciplinaProfessor: ProfessorTurmaDisciplina = {
-    id: '',
+    id: '',    
+    professor: '',
+    nomeProfessor: '', 
+    turma: '',
+	  descricaoTurma: '',  
+    disciplina: '',
+    nomeDisciplina: '',  
     anoLetivo: '',
     bimestre: '',
-    disciplina: '',
-    nomeDisciplina: '',
-    professor: '', 
-    nomeProfessorTurma: ''   
+    dataAtribuicao: '',
+    status: ''   
   }
  
 

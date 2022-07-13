@@ -58,10 +58,6 @@ import { AtividadeDeleteComponent } from './components/portal/atividade/atividad
 import { NotaRegistrarComponent } from './components/portal/nota/nota-registrar/nota-registrar.component';
 import { NotaUpdateComponent } from './components/portal/nota/nota-update/nota-update.component';
 import { NotaDeleteComponent } from './components/portal/nota/nota-delete/nota-delete.component';
-import { EmturmaReadComponent } from './components/emturma/emturma-read/emturma-read.component';
-import { EmturmaCreateComponent } from './components/emturma/emturma-create/emturma-create.component';
-import { EmturmaUpdateComponent } from './components/emturma/emturma-update/emturma-update.component';
-import { EmturmaDeleteComponent } from './components/emturma/emturma-delete/emturma-delete.component';
 import { DisciplinaProfessorReadComponent } from './components/DisciplinaProfessor/disciplina-professor-read/disciplina-professor-read.component';
 import { DisciplinaProfessorCreateComponent } from './components/DisciplinaProfessor/disciplina-professor-create/disciplina-professor-create.component';
 import { DisciplinaProfessorUpdateComponent } from './components/DisciplinaProfessor/disciplina-professor-update/disciplina-professor-update.component';
@@ -70,6 +66,7 @@ import { DisciplinaReadComponent } from './components/disciplina/disciplina-read
 import { DisciplinaCreateComponent } from './components/disciplina/disciplina-create/disciplina-create.component';
 import { DisciplinaUpdateComponent } from './components/disciplina/disciplina-update/disciplina-update.component';
 import { DisciplinaDeleteComponent } from './components/disciplina/disciplina-delete/disciplina-delete.component';
+import { EnturmaAlunosComponent } from './components/turma/enturma-alunos/enturma-alunos.component';
 
 
 @NgModule({
@@ -107,10 +104,6 @@ import { DisciplinaDeleteComponent } from './components/disciplina/disciplina-de
     NotaRegistrarComponent,
     NotaUpdateComponent,
     NotaDeleteComponent,
-    EmturmaReadComponent,
-    EmturmaCreateComponent,
-    EmturmaUpdateComponent,
-    EmturmaDeleteComponent,
     DisciplinaProfessorReadComponent,
     DisciplinaProfessorCreateComponent,
     DisciplinaProfessorUpdateComponent,
@@ -119,6 +112,7 @@ import { DisciplinaDeleteComponent } from './components/disciplina/disciplina-de
     DisciplinaCreateComponent,
     DisciplinaUpdateComponent,
     DisciplinaDeleteComponent,
+    EnturmaAlunosComponent,
   ],
   imports: [
     AppRoutingModule,

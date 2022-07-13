@@ -2,11 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Disciplina } from 'src/app/models/disciplina';
+import { Professor } from 'src/app/models/professor';
 import { ProfessorTurma } from 'src/app/models/professorTurma';
 import { ProfessorTurmaDisciplina } from 'src/app/models/professorTurmaDisciplina';
+import { Turma } from 'src/app/models/turma';
 import { DisciplinaService } from 'src/app/services/disciplina.service';
+import { ProfessorService } from 'src/app/services/professor.service';
 import { ProfessorTurmaService } from 'src/app/services/professorTurma.service ';
 import { professorTurmaDisciplinaService } from 'src/app/services/professorTurmaDisciplina.service';
+import { TurmaService } from 'src/app/services/turma.service';
 
 @Component({
   selector: 'app-disciplina-professor-delete',
@@ -16,20 +20,26 @@ import { professorTurmaDisciplinaService } from 'src/app/services/professorTurma
 export class DisciplinaProfessorDeleteComponent implements OnInit {
 
   disciplinaProfessor: ProfessorTurmaDisciplina = {
-    id: '',
-    anoLetivo: '',
-    bimestre:  '',
-    disciplina: '',
-    nomeDisciplina: '',
+    id: '',    
     professor: '',
-    nomeProfessorTurma: ''  
+    nomeProfessor: '', 
+    turma: '',
+	  descricaoTurma: '',  
+    disciplina: '',
+    nomeDisciplina: '',  
+    anoLetivo: '',
+    bimestre: '',
+    dataAtribuicao: '',
+    status: ''
   }
 
   disciplinas: Disciplina[] = [];
-  professores: ProfessorTurma[] = [];
+  professores: Professor[] = [];
+  turmas: Turma[] = [];
 
   constructor(
-    private professorService: ProfessorTurmaService,
+    private turmaService: TurmaService,
+    private professorService: ProfessorService,
     private disciplinaService: DisciplinaService,
     private service: professorTurmaDisciplinaService,
     private toast: ToastrService,   
@@ -42,6 +52,7 @@ export class DisciplinaProfessorDeleteComponent implements OnInit {
     this.findById();
     this.listarProf();
     this.listarDisciplina();
+    this.listarTurma();
   }
 
   cancel(): void {
@@ -77,6 +88,12 @@ export class DisciplinaProfessorDeleteComponent implements OnInit {
   listarDisciplina(): void {
     this.disciplinaService.findAll().subscribe(resposta => {
       this.disciplinas = resposta;
+    })
+  }
+
+  listarTurma(): void {
+    this.turmaService.findAll().subscribe(resposta => {
+      this.turmas = resposta;
     })
   }
 

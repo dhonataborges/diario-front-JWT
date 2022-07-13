@@ -7,6 +7,10 @@ import { ProfessorTurmaDisciplina } from './../../../models/professorTurmaDiscip
 import { ProfessorTurma } from './../../../models/professorTurma';
 import { Disciplina } from './../../../models/disciplina';
 import { Component, OnInit } from '@angular/core';
+import { TurmaService } from 'src/app/services/turma.service';
+import { ProfessorService } from 'src/app/services/professor.service';
+import { Professor } from 'src/app/models/professor';
+import { Turma } from 'src/app/models/turma';
 
 @Component({
   selector: 'app-disciplina-professor-update',
@@ -16,20 +20,26 @@ import { Component, OnInit } from '@angular/core';
 export class DisciplinaProfessorUpdateComponent implements OnInit {
 
   disciplinaProfessor: ProfessorTurmaDisciplina = {
-    id: '',
-    anoLetivo: '',
-    bimestre:  '',
-    disciplina: '',
-    nomeDisciplina: '',
+    id: '',    
     professor: '',
-    nomeProfessorTurma: ''  
+    nomeProfessor: '', 
+    turma: '',
+	  descricaoTurma: '',  
+    disciplina: '',
+    nomeDisciplina: '',  
+    anoLetivo: '',
+    bimestre: '',
+    dataAtribuicao: '',
+    status: ''
   }
 
   disciplinas: Disciplina[] = [];
-  professores: ProfessorTurma[] = [];
+  professores: Professor[] = [];
+  turmas: Turma[] = [];
 
   constructor(
-    private professorService: ProfessorTurmaService,
+    private turmaService: TurmaService,
+    private professorService: ProfessorService,
     private disciplinaService: DisciplinaService,
     private service: professorTurmaDisciplinaService,
     private toast: ToastrService,   
@@ -42,6 +52,7 @@ export class DisciplinaProfessorUpdateComponent implements OnInit {
     this.findById();
     this.listarProf();
     this.listarDisciplina();
+    this.listarTurma();
   }
 
   cancel(): void {
@@ -58,7 +69,7 @@ export class DisciplinaProfessorUpdateComponent implements OnInit {
 
   update(): void {
     this.service.update(this.disciplinaProfessor).subscribe(() => {
-      this.toast.success('Atualizado com sucesso!', 'Atualizado');
+      this.toast.success('Enturmação atualizado com sucesso!', 'Atualizado');
       this.router.navigate(['disciplinaProfessor']);
     }, ex => {
       this.toast.error(ex.error.error);
@@ -76,5 +87,12 @@ export class DisciplinaProfessorUpdateComponent implements OnInit {
       this.disciplinas = resposta;
     })
   }
+
+  listarTurma(): void {
+    this.turmaService.findAll().subscribe(resposta => {
+      this.turmas = resposta;
+    })
+  }
+
 
   }

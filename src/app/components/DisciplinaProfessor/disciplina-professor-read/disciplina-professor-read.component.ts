@@ -14,7 +14,7 @@ export class DisciplinaProfessorReadComponent implements AfterViewInit {
 
   disciplinaProfessor: ProfessorTurmaDisciplina[] = [];
 
-  displayedColumns: string[] = ['id', 'nomeProfessorTurma', 'nomeDisciplina', 'bimestre', 'anoLetivo','action' ];
+  displayedColumns: string[] = ['id', 'nomeProfessor', 'descricaoTurma', 'nomeDisciplina', 'bimestre', 'dataAtribuicao', 'anoLetivo', 'status','action' ];
   dataSource = new MatTableDataSource<ProfessorTurmaDisciplina>(this.disciplinaProfessor);
  
   @ViewChild(MatPaginator) paginator!: MatPaginator;

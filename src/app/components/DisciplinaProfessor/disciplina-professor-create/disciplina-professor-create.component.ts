@@ -1,14 +1,16 @@
+import { TurmaService } from 'src/app/services/turma.service';
+import { Turma } from 'src/app/models/turma';
 import { ProfessorTurma } from './../../../models/professorTurma';
 import { professorTurmaDisciplinaService } from './../../../services/professorTurmaDisciplina.service';
 import { DisciplinaService } from './../../../services/disciplina.service';
 import { Disciplina } from './../../../models/disciplina';
 import { ProfessorTurmaDisciplina } from 'src/app/models/professorTurmaDisciplina';
 import { Component, OnInit } from '@angular/core';
-import { Professor } from 'src/app/models/professor';
-import { ProfessorService } from 'src/app/services/professor.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { ProfessorTurmaService } from 'src/app/services/professorTurma.service ';
+import { Professor } from 'src/app/models/professor';
+import { ProfessorService } from 'src/app/services/professor.service';
 
 @Component({
   selector: 'app-disciplina-professor-create',
@@ -18,20 +20,26 @@ import { ProfessorTurmaService } from 'src/app/services/professorTurma.service '
 export class DisciplinaProfessorCreateComponent implements OnInit {
 
   disciplinaProfessor: ProfessorTurmaDisciplina = {
-    id: '',
-    anoLetivo: '',
-    bimestre:  '',
-    disciplina: '',
-    nomeDisciplina: '',
+    id: '',    
     professor: '',
-    nomeProfessorTurma: ''  
+    nomeProfessor: '', 
+    turma: '',
+	  descricaoTurma: '',  
+    disciplina: '',
+    nomeDisciplina: '',  
+    anoLetivo: '',
+    bimestre: '',
+    dataAtribuicao: '',
+    status: ''
   }
 
   disciplinas: Disciplina[] = [];
-  professores: ProfessorTurma[] = [];
+  professores: Professor[] = [];
+  turmas: Turma[] = [];
 
   constructor(
-    private professorTurmaService: ProfessorTurmaService,
+    private turmaService: TurmaService,
+    private professorService: ProfessorService,
     private disciplinaService: DisciplinaService,
     private service: professorTurmaDisciplinaService,
     private toast: ToastrService,   
@@ -41,6 +49,7 @@ export class DisciplinaProfessorCreateComponent implements OnInit {
   ngOnInit(): void {
     this.listarProf();
     this.listarDisciplina();
+    this.listarTurma();
   }
 
   cancel(): void {
@@ -55,7 +64,7 @@ export class DisciplinaProfessorCreateComponent implements OnInit {
   }
 
   listarProf(): void {
-    this.professorTurmaService.findAll().subscribe(resposta => {
+    this.professorService.findAll().subscribe(resposta => {
       this.professores = resposta;
     })
   }
@@ -65,5 +74,12 @@ export class DisciplinaProfessorCreateComponent implements OnInit {
       this.disciplinas = resposta;
     })
   }
+
+  listarTurma(): void {
+    this.turmaService.findAll().subscribe(resposta => {
+      this.turmas = resposta;
+    })
+  }
+
 
   }

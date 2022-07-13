@@ -2,15 +2,36 @@
     <h1> Atualizar Disciplina </h1>
 
     <mat-form-field class="full-width" appearance="outline">
-        <mat-label>PROFESSOR: {{disciplinaProfessor.nomeProfessorTurma}}</mat-label>
-        <mat-select [(ngModel)]="disciplinaProfessor.professor" name="nomeProfessorTurma" disabled>
-            <mat-option *ngFor="let professor of professores" value="{{ professor.id }}">{{ professor.nomeProfessor }}
-            </mat-option>
-        </mat-select>
+      <mat-label>Ano de Atribuição</mat-label>
+      <input [(ngModel)]="disciplinaProfessor.dataAtribuicao" [ngModelOptions]="{standalone: true}" disabled name="dataAtribuicao" matInput [matDatepicker]="picker">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field class="full-width" appearance="outline">
-        <mat-label>DISCIPLINA: {{disciplinaProfessor.nomeDisciplina}}</mat-label>
+      <mat-label>Selecione o Status</mat-label>
+      <mat-select [(ngModel)]="disciplinaProfessor.status" disabled name="status">
+        <mat-option value= 0>Ativo</mat-option>
+        <mat-option value= 1>Inativo</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Selecione um Turma</mat-label>
+      <mat-select [(ngModel)]="disciplinaProfessor.turma" name="descricaoTurma" disabled>
+          <mat-option *ngFor="let turma of turmas" value="{{ turma.id }}">{{ turma.nomeSerieNivelSubnivel }}</mat-option>
+      </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Selecione um Professor</mat-label>
+      <mat-select [(ngModel)]="disciplinaProfessor.professor" name="nomeProfessor" disabled>
+          <mat-option *ngFor="let professor of professores" value="{{ professor.id }}">{{ professor.nome }}</mat-option>
+      </mat-select>
+  </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Selecione um Disciplina</mat-label>
         <mat-select [(ngModel)]="disciplinaProfessor.disciplina" name="nomeProfessor" disabled>
             <mat-option *ngFor="let disciplina of disciplinas" value="{{ disciplina.id }}">{{ disciplina.nome }}
             </mat-option>
@@ -18,7 +39,7 @@
     </mat-form-field>
 
     <mat-form-field class="full-width" appearance="outline">
-        <mat-label>BIMESTRE: {{disciplinaProfessor.bimestre}}</mat-label>
+        <mat-label>Selecione o Bimestre</mat-label>
         <mat-select [(ngModel)]="disciplinaProfessor.bimestre" disabled name="bimestre">
           <mat-option value= 1>1°</mat-option>
           <mat-option value= 2>2°</mat-option>
