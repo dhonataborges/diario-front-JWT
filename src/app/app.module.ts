@@ -67,6 +67,9 @@ import { DisciplinaCreateComponent } from './components/disciplina/disciplina-cr
 import { DisciplinaUpdateComponent } from './components/disciplina/disciplina-update/disciplina-update.component';
 import { DisciplinaDeleteComponent } from './components/disciplina/disciplina-delete/disciplina-delete.component';
 import { EnturmaAlunosComponent } from './components/turma/enturma-alunos/enturma-alunos.component';
+import { FrequenciaCreateComponent } from './components/portal/frequencia/frequencia-create/frequencia-create.component';
+import { FrequenciaUpdateComponent } from './components/portal/frequencia/frequencia-update/frequencia-update.component';
+import { FrequenciaDeleteComponent } from './components/portal/frequencia/frequencia-delete/frequencia-delete.component';
 
 
 @NgModule({
@@ -113,6 +116,9 @@ import { EnturmaAlunosComponent } from './components/turma/enturma-alunos/enturm
     DisciplinaUpdateComponent,
     DisciplinaDeleteComponent,
     EnturmaAlunosComponent,
+    FrequenciaCreateComponent,
+    FrequenciaUpdateComponent,
+    FrequenciaDeleteComponent,
   ],
   imports: [
     AppRoutingModule,

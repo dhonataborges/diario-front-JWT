@@ -39,6 +39,14 @@ export class ProfessorDeleteComponent implements OnInit {
     this.findById();
   }
 
+  addPerfil(perfil: any): void {
+    if(this.prof.perfis.includes(perfil)) {
+      this.prof.perfis.splice(this.prof.perfis.indexOf(perfil), 2);
+    } else {
+      this.prof.perfis.push(perfil);
+    }
+  }
+  
   findById(): void {
     this.service.findById(this.prof.id).subscribe(resposta => {      
       resposta.perfis = [];
@@ -47,7 +55,7 @@ export class ProfessorDeleteComponent implements OnInit {
   }  
   
   delete(): void {
-    this.service.delete(this.prof.id).subscribe(() => {
+    this.service.delete(this.prof).subscribe(() => {
       this.toast.error('Cliente deletato com sucesso!', 'Delete');
       this.router.navigate(['professores']);
     }, ex => {

@@ -1,70 +1,58 @@
-.create {
-    width: 90%;
-    margin-right: auto;
-    margin-left: auto;
-  }
-  
-  .create h1 {
-    text-align: center;
-    font-size: 2rem;
-  }
-  
-  .create button {
-    width: 100%;
-    margin: 1rem auto;
-    border-radius: 1rem;
-  }
-  
-  .container {
-    width: 95%;
-    overflow: auto;
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  table.mat-table {
-    width: 90%;
-  }
-  
-  
-  th.mat-header-cell {
-    padding: 0px 03px;
-    text-align: center;
-  }
-
-  td.mat-cell {
-    padding: 0px 10px;
-    text-align: center;
-  }
-
-
-  #editar {
-    color: rgb(243, 185, 38);
-  }
-  
-  #delete {
-    color: rgb(223, 80, 80);
-  }
-
-  #view {
-    color: rgb(22, 25, 196);
-  }
-
-  .menu{
-    width: 100%;
-    flex-wrap: wrap;
-    margin: 1rem;
+.container {
+  width: 98%;
+  overflow: auto;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-.menuzao{  
-    width: 100%; 
-    margin-top: 1rem;    
-    display: inline-block;
-    text-align: center;
+table.mat-table {
+  width: 90%;
+}
+
+
+th.mat-header-cell {
+  padding: 0px 03px;
+  text-align: center;
+}
+
+td.mat-cell {
+  padding: 0px 10px;
+  text-align: center;
+}
+
+#add {
+  color: rgb(11, 136, 22);
+}
+
+#editar {
+  color: rgb(161, 120, 17);
+}
+
+#delete {
+  color: rgb(223, 80, 80);
+}
+
+#view {
+  color: rgb(22, 25, 196);
+}
+
+.menu{
+  flex-wrap: wrap;
+  display: inline-block;
+  margin: 1rem;
+}
+
+.menuzao{   
+  margin-top: 2rem;
+  text-align:  left;
 }
 
 .mat-slide-toggle {
-  margin: 8px 0;
+  margin: 2rem;
   display: block;
-  
+
+}
+
+h1{
+  text-align: center;
 }

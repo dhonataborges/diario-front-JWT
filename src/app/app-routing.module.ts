@@ -1,3 +1,5 @@
+import { FrequenciaDeleteComponent } from './components/portal/frequencia/frequencia-delete/frequencia-delete.component';
+import { FrequenciaUpdateComponent } from './components/portal/frequencia/frequencia-update/frequencia-update.component';
 import { EnturmaAlunosComponent } from './components/turma/enturma-alunos/enturma-alunos.component';
 import { DisciplinaDeleteComponent } from './components/disciplina/disciplina-delete/disciplina-delete.component';
 import { DisciplinaUpdateComponent } from './components/disciplina/disciplina-update/disciplina-update.component';
@@ -41,6 +43,7 @@ import { AulaUpdateComponent } from './components/portal/aula/aula-update/aula-u
 import { AtividadeUpdateComponent } from './components/portal/atividade/atividade-update/atividade-update.component';
 import { AulaViewsComponent } from './components/portal/aula/aula-views/aula-views.component';
 import { DisciplinaReadComponent } from './components/disciplina/disciplina-read/disciplina-read.component';
+import { FrequenciaCreateComponent } from './components/portal/frequencia/frequencia-create/frequencia-create.component';
 
 const routes: Routes = [
 
@@ -80,6 +83,9 @@ const routes: Routes = [
       { path: 'atividades/delete/:id', component: AtividadeDeleteComponent },
 
       { path: 'frequencia', component: FrequenciaReadComponent },
+      { path: 'frequencia/create', component: FrequenciaCreateComponent},
+      { path: 'frequencia/update/:id', component: FrequenciaUpdateComponent},
+      { path: 'frequencia/delete/:id', component: FrequenciaDeleteComponent},
 
       { path: 'notas', component: NotaReadComponent },
       { path: 'notaRegistrar/create', component: NotaRegistrarComponent},

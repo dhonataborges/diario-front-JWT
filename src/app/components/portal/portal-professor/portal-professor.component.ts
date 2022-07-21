@@ -1,13 +1,8 @@
 import { ProfessorTurmaDisciplina } from './../../../models/professorTurmaDisciplina';
-import { ProfessorTurmaService } from './../../../services/professorTurma.service ';
-import { ProfessorService } from 'src/app/services/professor.service';
-import { TurmaService } from 'src/app/services/turma.service';
 import { Router } from '@angular/router';
 import { Turma } from 'src/app/models/turma';
 import { Component, OnInit } from '@angular/core';
-import { ProfessorTurma } from 'src/app/models/professorTurma';
 import { professorTurmaDisciplinaService } from 'src/app/services/professorTurmaDisciplina.service';
-import { Professor } from 'src/app/models/professor';
 
 @Component({
   selector: 'app-portal-professor',
@@ -17,7 +12,7 @@ import { Professor } from 'src/app/models/professor';
 export class PortalProfessorComponent implements OnInit {
 
   disciplinas: ProfessorTurmaDisciplina[] = [];
-  
+    
   turma: Turma[] = []; 
 
   disciplinaProfessor: ProfessorTurmaDisciplina = {

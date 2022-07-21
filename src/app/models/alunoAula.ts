@@ -4,7 +4,7 @@ export interface AlunoAula {
     id?: any;
     frequencia: any;
     aula: any;
-    aulaData:any;
+    conteudoAula:String;
     aluno: any;
     nomeAluno:String;
 }

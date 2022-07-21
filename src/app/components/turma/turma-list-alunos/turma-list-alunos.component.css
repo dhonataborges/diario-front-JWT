@@ -44,7 +44,7 @@
   #delete {
     color: rgb(223, 80, 80);
   }
-  .menu{
+.menu{
     flex-wrap: wrap;
     display: inline-block;
     margin: 1rem;

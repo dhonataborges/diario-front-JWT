@@ -14,7 +14,7 @@ export class TurmaListAlunosComponent implements AfterViewInit {
 
   alunos: Aluno[] = [];
 
-  displayedColumns: string[] = ['id', 'nome'];
+  displayedColumns: string[] = ['id', 'nome', 'action'];
   dataSource = new MatTableDataSource<Aluno>(this.alunos);
  
   @ViewChild(MatPaginator) paginator!: MatPaginator;

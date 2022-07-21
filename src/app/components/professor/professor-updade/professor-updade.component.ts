@@ -80,6 +80,7 @@ export class ProfessorUpdadeComponent implements  OnInit {
 
   findById(): void {
     this.service.findById(this.prof.id).subscribe(resposta => {
+      resposta.perfis = [];
       this.prof = resposta;
     })
   }

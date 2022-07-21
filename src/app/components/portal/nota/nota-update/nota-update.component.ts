@@ -43,16 +43,17 @@ export class NotaUpdateComponent implements OnInit {
     this.listarAtividade();
   }
 
+  
+  cancel(): void {
+    this.router.navigate(['notas'])
+  } 
+  
   findById(): void {
     this.service.findById(this.alunoAtividade.id).subscribe(resposta => {
       this.alunoAtividade = resposta;
     }, ex => {
       this.toast.error(ex.error.error);
     });
-  }
-
-  cancel(): void {
-    this.router.navigate(['notas'])
   }
 
   update(): void {
