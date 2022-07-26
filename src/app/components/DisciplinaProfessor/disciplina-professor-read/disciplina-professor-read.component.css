@@ -51,3 +51,11 @@
     background-color: transparent;
     border: transparent;
   }
+
+  td.ativo {
+    color: rgb(7, 180, 94);
+  }
+
+  td.inativo {
+    color: rgb(226, 68, 10);
+  }

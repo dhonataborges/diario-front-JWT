@@ -27,3 +27,7 @@ img {
    color: white;
    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgb(154, 168, 194) 0%, rgb(64, 172, 194) 100%);
 }
+
+#sair{
+   margin-top: 20rem;
+}

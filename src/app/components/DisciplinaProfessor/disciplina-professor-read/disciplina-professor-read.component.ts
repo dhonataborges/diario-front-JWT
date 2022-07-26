@@ -27,12 +27,26 @@ export class DisciplinaProfessorReadComponent implements AfterViewInit {
           this.findAll();
   }
 
-  findAll():void {
+  findAll(): void {
     this.service.findAll().subscribe((resposta) => {
-      this.disciplinaProfessor = resposta;
+      resposta.forEach(x => {
+        if(x.status != "ENCERRADO") {
+          this.disciplinaProfessor.push(x)
+        }
+      })
+
       this.dataSource = new MatTableDataSource<ProfessorTurmaDisciplina>(this.disciplinaProfessor);
       this.dataSource.paginator = this.paginator;
     })
+  }
+ 
+  /** ESSE METODO MUDA A COR DO STATUS */
+  status(x: any) {
+    if (x == 'ATIVO') {
+      return 'ativo'
+    } else{
+      return 'inativo'
+    }
   }
 
   navigateToCreate():void {
