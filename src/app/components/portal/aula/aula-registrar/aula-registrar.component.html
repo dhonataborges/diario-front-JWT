@@ -1,5 +1,5 @@
 <form class="form mat-elevation-z8">
-  <h1>Registrar Aula</h1>
+  <h1>Criar Aula</h1>
 
   <mat-form-field class="full-width" appearance="outline">
     <mat-label>Data</mat-label>
@@ -18,6 +18,13 @@
     <mat-label>Hora Fim</mat-label>
     <input [(ngModel)]="aulas.horaFim" required name="horaFim" type="time" matInput>
   </mat-form-field>
+  
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Selecione o Disciplina</mat-label>
+    <mat-select [(ngModel)]="aulas.disciplina" name="tecnico" required>
+      <mat-option *ngFor="let disc of discs" value="{{ disc.id }}">{{ disc.nomeDisciplina }}</mat-option>
+    </mat-select>
+  </mat-form-field>
 
   <form class="full-width">
     <mat-form-field class="full-width">
@@ -25,13 +32,6 @@
       <textarea [(ngModel)]="aulas.conteudo" name="conteudo" matInput maxlength="255" required></textarea>
     </mat-form-field>
   </form>
-
-  <mat-form-field class="full-width" appearance="outline">
-    <mat-label>Selecione o Disciplina</mat-label>
-    <mat-select [(ngModel)]="aulas.disciplina" name="tecnico" required>
-      <mat-option *ngFor="let disc of discs" value="{{ disc.id }}">{{ disc.nomeDisciplina }}</mat-option>
-    </mat-select>
-  </mat-form-field>
 
   <button class="mat-elevation-z8" (click)="create()" mat-raised-button color="primary">CRIAR</button>
   <button class="mat-elevation-z8" (click)="cancel()" mat-raised-button color="warn">CANCELAR</button>
